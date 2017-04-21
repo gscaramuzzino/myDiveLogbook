@@ -7,10 +7,34 @@ var Verify = require('./verify');
 /* GET users listing. */
 router.get('/', function (req, res, next) {
   User.find({}, function (err, user) {
-    if (err) throw err;
-    res.json(user);
+    if (err) return next(err);
+    else res.json(user);
   });
 });
+
+router.route('/:userId')
+  .get(function (req, res, next) {
+    User.findById({}, function (err, user) {
+      if (err) return next(err);
+      else res.json(user);
+    });
+  })
+  .put(function (req, res, next) {
+    User.findByIdAndUpdate(req.params.userId, {
+      $set: req.body
+    }, {
+      new: true
+    }, function (err, user) {
+      if (err) return next(err);
+      else res.json(user);
+    });
+  })
+  .delete(function (req, res, next) {
+    User.findByIdAndRemove(req.params.userId, function (err, resp) {
+      if (err) return next(err);
+      else res.json(resp);
+    });
+  });
 
 router.post('/register', function (req, res) {
   User.register(new User({
