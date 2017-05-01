@@ -12,9 +12,10 @@ router.get('/', function (req, res, next) {
   });
 });
 
+/* API for a specific user */
 router.route('/:userId')
   .get(function (req, res, next) {
-    User.findById({}, function (err, user) {
+    User.findById(req.params.userId, function (err, user) {
       if (err) return next(err);
       else res.json(user);
     });
@@ -36,6 +37,7 @@ router.route('/:userId')
     });
   });
 
+/* Register new user */
 router.post('/register', function (req, res) {
   User.register(new User({
       username: req.body.username
@@ -63,6 +65,7 @@ router.post('/register', function (req, res) {
     });
 });
 
+/* Register new user with his fb account */
 router.get('/facebook', passport.authenticate('facebook'),
   function (req, res) {});
 
