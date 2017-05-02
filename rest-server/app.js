@@ -22,6 +22,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var licences = require('./routes/licences');
 var dives = require('./routes/dives');
+var favorites = require('./routes/favorites');
 
 var app = express();
 // Secure traffic only
@@ -52,6 +53,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/licences', licences);
 app.use('/dives', dives);
+app.use('/favorites', favorites);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
