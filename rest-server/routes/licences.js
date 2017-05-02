@@ -26,26 +26,28 @@ licencesRouter
     .post(function (req, res, next) {
         var userId = req.decoded._doc._id;
 
-
         Licences.findOne({
             "user": userId
         }, function (err, licence) {
-            if (err) throw err;
+            if (err) return next(err);
             if (licence) {
-                licence.dishes.push(licenceId);
+                licence.licence.push(req.body);
                 licence.save(function (err, lic) {
                     if (err) return next(err);
                     else res.json(lic);
                 });
             } else {
+                req.body.user = userId;
                 Licences.create(req.body, function (err, licence) {
                     if (err) return next(err);
-                    licence.user = userId;
-                    licence.dishes.push(req.body);
-                    licence.save(function (err, lic) {
-                        if (err) return next(err);
-                        else res.json(lic);
-                    });
+                    else {
+                        licence.user = userId;
+                        licence.licence.push(req.body);
+                        licence.save(function (err, lic) {
+                            if (err) return next(err);
+                            else res.json(lic);
+                        });
+                    }
                 });
             }
         })
@@ -59,29 +61,35 @@ licencesRouter
     .put(function (req, res, next) {
         var userId = req.decoded._doc._id;
 
-        Licences.findById(userId, function (err, lic) {
+        Licences.findOne({
+            "user": userId
+        }, function (err, lic) {
             if (err) return next(err);
-            lic.licence.id(req.params.licenceId).remove();
-            lic.licence.push(req.body);
-            lic.save(function (err, lic) {
-                if (err) return next(err);
-                else res.json(lic);
-            });
+            else {
+                lic.licence.id(req.params.licenceId).remove();
+                lic.licence.push(req.body);
+                lic.save(function (err, result) {
+                    if (err) return next(err);
+                    else res.json(result);
+                });
+            }
         });
 
     })
     .delete(function (req, res, next) {
         var userId = req.decoded._doc._id;
 
-        Licences.findById(userId, function (err, lic) {
+        Licences.findOne({
+            "user": userId
+        }, function (err, lic) {
             if (err) return next(err);
-            for (var i = (lice.licence.length - 1); i >= 0; i--) {
-                lic.licence.id(lic.licence[i]._id).remove();
+            else {
+                lic.licence.id(req.params.licenceId).remove();
+                lic.save(function (err, result) {
+                    if (err) return next(err);
+                    else res.json(result);
+                });
             }
-            lic.save(function (err, result) {
-                if (err) return next(err);
-                else res.json(lic);
-            });
         });
 
     });
