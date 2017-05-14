@@ -1,0 +1,45 @@
+@import './bootstrap/customizations.scss';
+body {
+    padding-bottom: 40px;
+    color: #5a5a5a;
+    padding-top: 70px;
+}
+
+.row-content {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.table-width-fix {
+    height: 20%;
+    overflow: auto;
+}
+
+.panel-default {
+    .panel-heading {
+        .badge {
+            font-size: 25px;
+            background-color: #337ab7;
+            vertical-align: top;
+        }
+        .badge-label-dives {
+            font-size: 15px;
+            font-weight: bold;
+        }
+    }
+}
+
+.media-user-home {
+    margin-bottom: 20px;
+    .media-body {
+        vertical-align: bottom;
+        .media-heading {
+            font-size: 30px;
+            small {
+                font-size: 18px;
+                display: inline-block;
+                font-weight: 300;
+            }
+        }
+    }
+}
