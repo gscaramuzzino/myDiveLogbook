@@ -5,11 +5,6 @@ body {
     padding-top: 70px;
 }
 
-.row-content {
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
 .table-width-fix {
     height: 20%;
     overflow: auto;
@@ -29,17 +24,57 @@ body {
     }
 }
 
+.row-user-home {
+    margin-top: 30px;
+    margin-bottom: 35px;
+}
+
+i {
+    vertical-align: middle;
+}
+
 .media-user-home {
-    margin-bottom: 20px;
+    img {
+        width: 246px;
+        height: 246px;
+    }
     .media-body {
         vertical-align: bottom;
         .media-heading {
-            font-size: 30px;
+            font-size: 40px;
             small {
                 font-size: 18px;
                 display: inline-block;
                 font-weight: 300;
             }
+        }
+    }
+}
+
+.form-certificate {
+    legend {
+        font-size: 1.2em !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        width: auto;
+        padding: 0 10px;
+        border-bottom: none;
+    }
+    fieldset {
+        padding: 32px;
+        margin: 0;
+        border: 1px solid #c0c0c0;
+        -webkit-box-shadow: 0px 0px 0px 0px #000;
+        box-shadow: 0px 0px 0px 0px #000;
+    }
+    & label.control-label {
+        text-align: left;
+    }
+    .button-group-certificate {
+        margin-top: 20px;
+        margin-bottom: 0px;
+        .btn-default {
+            margin-right: 12px;
         }
     }
 }

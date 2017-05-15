@@ -42,7 +42,7 @@
         <ul class="nav navbar-nav">
           <li class="active">
             <a href="#">
-              <i class="fa fa-book" aria-hidden="true"></i> Logbook
+              <i class="fa fa-book" aria-hidden="true"></i> Logshare
             </a>
           </li>
           <li>
@@ -58,6 +58,11 @@
           <li>
             <a href="#contact">
               <i class="fa fa-user" aria-hidden="true"></i> Profile
+            </a>
+          </li>
+          <li>
+            <a href="#contact">
+              <i class="fa fa-plus" aria-hidden="true"></i> New dive
             </a>
           </li>
         </ul>
@@ -76,123 +81,79 @@
   </nav>
 
   <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ol class="breadcrumb pull-right">
+          <li><a href="#">Home</a></li>
+          <li class="active">Certificate</li>
+        </ol>
+      </div>
+    </div>
 
     <!-- Main component for a primary marketing message or call to action -->
 
-    <div class="row row-content">
-      <div class="col-xs-12">
-        <div class="media media-user-home">
-          <div class="media-left">
-            <a href="#"> <img alt="64x64" class="media-object" style="width: 180; height: 180px;" src=<%= require("./images/user_picture.jpg") %>> </a>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              <span class="pull-left">
-            Name Surname
-            </span>
-             <span class="pull-right">
-            <small>Dive Master</small>
-            </span>
-             <!-- <span class="pull-right">
-             <span class="badge">14</span> Dives
-              </span>
-              -->
-            </h4>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row row-content">
-      <div class="col-xs-12">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <div class="pull-right">
-              <button type="button" class="btn btn-primary btn-sm">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-                Add dive
-              </button>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <form class="form-horizontal form-certificate">
+          <fieldset>
+            <legend class="scheduler-border">Certificate:</legend>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-3 control-label">Name</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="Email" disabled>
+              </div>
             </div>
-             <span class="badge">14</span> 
-             <span class="badge-label-dives">dives</span>
-           <div class="clearfix"></div>
-          </div>
-          <div class="table-responsive table-width-fix">
-            <table class="table table-bordered table-striped table-width-fix">
-              <thead>
-                <tr>
-                  <th>Num Dive <i class="fa fa-sort" aria-hidden="true"></i>
-                  </th>
-                  <th>Date <i class="fa fa-sort" aria-hidden="true"></i>
-                  </th>
-                  <th>Location <i class="fa fa-sort" aria-hidden="true"></i>
-                  </th>
-                  <th>Duration <i class="fa fa-sort" aria-hidden="true"></i>
-                  </th>
-                  <th>Depth <i class="fa fa-sort" aria-hidden="true"></i>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>01/01/2016</td>
-                  <td>Blue Heron Bridge - Riviera Beach Florida (USA)</td>
-                  <td>40 min</td>
-                  <td>18 m</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>01/02/2016</td>
-                  <td>Kona Mantas - Hawaii (USA)</td>
-                  <td>38 min</td>
-                  <td>12.5 m</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>01/03/2016</td>
-                  <td>Nakwaka Rapids - British Columbia (Canada)</td>
-                  <td>41 min</td>
-                  <td>22.3 m</td>
-                </tr>
-                <tr>
-                  <th scope="row">4</th>
-                  <td>01/04/2016</td>
-                  <td>USS Vandeberg - Florida Keys (USA)</td>
-                  <td>39 min</td>
-                  <td>14.8 m</td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>01/05/2016</td>
-                  <td>Point Labos - Carnel California (USA)</td>
-                  <td>50 min</td>
-                  <td>35.2 m</td>
-                </tr>
-                <tr>
-                  <th scope="row">6</th>
-                  <td>01/06/2016</td>
-                  <td>Whale Sharks - Isla Mujeres (Mexico)</td>
-                  <td>55 min</td>
-                  <td>15.2 m</td>
-                </tr>
-                <tr>
-                  <th scope="row">7</th>
-                  <td>01/07/2016</td>
-                  <td>Palancar Horseshoe - Cozumel (Mexico)</td>
-                  <td>36 min</td>
-                  <td>23.2 m</td>
-                </tr>
-                <tr>
-                  <th scope="row">8</th>
-                  <td>01/08/2016</td>
-                  <td>Cabo Pulmo - Baja California (Mexico)</td>
-                  <td>64 min</td>
-                  <td>25.2 m</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-3 control-label">Surname</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-3 control-label">N° certificate</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group pull-right button-group-certificate">
+              <button type="submit" class="btn btn-default">Cancel</button>
+              <button type="submit" class="btn btn-primary">
+                <i class="fa fa-edit"></i> Edit</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <form class="form-horizontal form-certificate">
+          <fieldset>
+            <legend class="scheduler-border">Certificate:</legend>
+
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-3 control-label">Name</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-3 control-label">Surname</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-3 control-label">N° certificate</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group pull-right button-group-certificate">
+              <button type="submit" class="btn btn-default">Cancel</button>
+              <button type="submit" class="btn btn-primary">
+                <i class="fa fa-save"></i> Save</button>
+            </div>
+          </fieldset>
+        </form>
       </div>
     </div>
   </div>
