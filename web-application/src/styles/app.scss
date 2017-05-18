@@ -51,7 +51,7 @@ i {
     }
 }
 
-.form-certificate {
+.form-certificate, .form-profile {
     legend {
         font-size: 1.2em !important;
         font-weight: bold !important;
@@ -70,7 +70,7 @@ i {
     & label.control-label {
         text-align: left;
     }
-    .button-group-certificate {
+    .button-group-form {
         margin-top: 20px;
         margin-bottom: 0px;
         .btn-default {
