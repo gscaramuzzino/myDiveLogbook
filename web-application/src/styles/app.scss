@@ -77,4 +77,10 @@ i {
             margin-right: 12px;
         }
     }
+    textarea {
+        width: 106%;
+    }
+    & label.label-right {
+        text-align: right;
+    }
 }
