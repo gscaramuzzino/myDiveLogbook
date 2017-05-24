@@ -29,40 +29,53 @@ module.exports = {
   },
   module: {
     rules: [{
-        test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
-        loader: 'imports-loader?jQuery=jquery'
-      },
-      {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        use: ['file-loader?name=images/[name].[ext]'] // 'image-webpack-loader']
-      },
-      {
-        test: /\.(html)$/i,
-        exclude: /index.html/,
-        use: ['file-loader?name=views/[name].[ext]'] // 'image-webpack-loader']
-      },
-      {
-        test: /\.(woff2?|svg)$/,
-        loader: 'url-loader?limit=10000&name=fonts/[name].[ext]'
-      },
-      {
-        test: /\.(ttf|eot)$/,
-        loader: 'file-loader?name=fonts/[name].[ext]'
-      },
-      {
-        test: /\.scss$/,
-        use: cssConfig
-      },
-      {
-        test: /\.js$/, // Check for all js files
-        exclude: /node_modules/,
-        use: [{
-          loader: 'babel-loader',
+      test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
+      loader: 'imports-loader?jQuery=jquery'
+    },
+    {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: 'ng-annotate-loader',
           options: {
-            presets: ['es2015']
+            add: false,
+            map: false,
           }
-        }]
-      }
+        }
+      ]
+    },
+    {
+      test: /\.(gif|png|jpe?g|svg)$/i,
+      use: ['file-loader?name=images/[name].[ext]'] // 'image-webpack-loader']
+    },
+    {
+      test: /\.(html)$/i,
+      exclude: /index.html/,
+      use: ['file-loader?name=views/[name].[ext]'] // 'image-webpack-loader']
+    },
+    {
+      test: /\.(woff2?|svg)$/,
+      loader: 'url-loader?limit=10000&name=fonts/[name].[ext]'
+    },
+    {
+      test: /\.(ttf|eot)$/,
+      loader: 'file-loader?name=fonts/[name].[ext]'
+    },
+    {
+      test: /\.scss$/,
+      use: cssConfig
+    },
+    {
+      test: /\.js$/, // Check for all js files
+      exclude: /node_modules/,
+      use: [{
+        loader: 'babel-loader',
+        options: {
+          presets: ['es2015']
+        }
+      }]
+    }
     ]
   },
   devServer: {

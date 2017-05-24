@@ -1,6 +1,8 @@
-class LocalStorage {
-    constructor(window) {
-        this.window = window;
+export default class LocalStorage {
+
+    /*@ngInject;*/
+    constructor($window) {
+        this.window = $window;
     }
 
     store(key, value) {
@@ -23,4 +25,4 @@ class LocalStorage {
         return JSON.parse(this.window.localStorage[key] || defaultValue);
     }
 }
-LocalStorage.$inject = ["$window"];
+
