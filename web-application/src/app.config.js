@@ -1,7 +1,4 @@
-export default class AppConfig {
-
-  /*@ngInject;*/
-  constructor($httpProvider) {
-    $httpProvider.interceptors.push("HttpInterceptor");
-  }
+AppConfig.$inject = ["$httpProvider"];
+export default function AppConfig($httpProvider) {
+  $httpProvider.interceptors.push("HttpInterceptor");
 }

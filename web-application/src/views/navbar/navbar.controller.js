@@ -1,6 +1,6 @@
 
 export default class NavbarController {
   /*@ngInject;*/
-  constructor() {
+  constructor(LocalStorage) {
   }
 }

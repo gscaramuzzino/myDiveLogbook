@@ -8,12 +8,12 @@ export default function AppRoute(stateProvider, urlProvider) {
       'header': {
         templateUrl: require('./views/navbar/navbar.html'),
         controller: 'NavbarController',
-        controllerAs:'navCtrl'
+        controllerAs:'$nav'
       },
       'content': {
-        templateUrl: require('./views/login/login.html'),
-        controller: 'LoginController',
-        controllerAs: 'logCtrl'
+        templateUrl: require('./views/home/home.html'),
+        controller: 'HomeController',
+        controllerAs: '$home'
       },
        'footer': {
         templateUrl: ""
