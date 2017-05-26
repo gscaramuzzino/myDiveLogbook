@@ -14,6 +14,7 @@ import NavbarController from './views/navbar/navbar.controller';
 import HomeController from './views/home/home.controller'; 
 
 let AppModule = angular.module("MyDiveLogbook", ['ui.router', 'ngResource']);
+AppModule.constant("baseURL", "https://localhost:3443/");
 AppModule.config(AppRouter);
 AppModule.config(AppConfig);
 AppModule.factory("AuthManager", AuthManager);

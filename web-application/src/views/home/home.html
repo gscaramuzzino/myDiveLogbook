@@ -12,7 +12,7 @@
     <pre>{{$home.registrationForm.$invalid }}</pre>
     <div class="col-sm-3">
       <form ng-submit="$home.doRegister()" name="$home.registrationForm">
-        <div class="form-group" ng-class="{'has-error': $home.registrationForm.name.$invalid}">
+        <div class="form-group">
           <label for="name" class="control-label">Name: *</label>
           <input type="text" class="form-control" id="name" name="name" placeholder="Name..." ng-model="$home.registration.name" required>
         </div>
@@ -28,7 +28,7 @@
           <label for="password">Password: *</label>
           <input type="password" class="form-control" id="password" name="password" placeholder="Password..." ng-model="$home.registration.password" required>
         </div>
-        <button type="submit" class="btn btn-primary btn-block btn-lg" ng-disabled="$home.registrationForm.$invalid">Create account</button>
+        <button type="submit" class="btn btn-primary btn-block btn-lg" ng-disabled="$home.registrationForm.$pristine">Create account</button>
       </form>
     </div>
   </div>

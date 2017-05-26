@@ -6,10 +6,9 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
     isAuthenticated = false,
     username = '',
     authToken = undefined;
+  let authManager = {};
 
-  loadUserCredentials();
-
-  return {
+  authManager = {
 
     loadUserCredentials: () => {
       let credentials = LocalStorage.get(TOKEN_KEY, '{}');
@@ -50,18 +49,32 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
     },
 
     register: (registerData) => {
-      $resource(baseURL + "users/register")
-        .save(registerData,
-        function (response) {
-          login({ username: registerData.username, password: registerData.password });
-          if (registerData.rememberMe) {
-            LocalStorage.store('userinfo',
-              { username: registerData.username, password: registerData.password });
-          }
-          $rootScope.$broadcast('registration:Successful');
-        },
-        function (response) { });
+      $resource(baseURL + "users/register", registerData,
+        {
+          'save': { 'method': 'JSONP' }},
+          function(response) {
+            login({ username: registerData.username, password: registerData.password });
+            if (registerData.rememberMe) {
+              LocalStorage.store('userinfo',
+                { username: registerData.username, password: registerData.password });
+            }
+            $rootScope.$broadcast('registration:Successful');
+          },
+          function(response) { });
     },
+
+    /* $resource(baseURL + "users/register")
+       .save(registerData,
+       function (response) {
+         login({ username: registerData.username, password: registerData.password });
+         if (registerData.rememberMe) {
+           LocalStorage.store('userinfo',
+             { username: registerData.username, password: registerData.password });
+         }
+         $rootScope.$broadcast('registration:Successful');
+       },
+       function (response) { });
+  },*/
 
     logout: () => {
       $resource(baseURL + "users/logout").get(function (response) {
@@ -69,13 +82,17 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
       });
     },
 
-    isAuthenticated: () => {
-      returnisAuthenticated;
-    },
+      isAuthenticated: () => {
+        returnisAuthenticated;
+      },
 
-    getUsername: () => {
-      return username;
-    }
-    
-  };
+        getUsername: () => {
+          return username;
+        }
+
+};
+
+authManager.loadUserCredentials();
+return authManager;
+
 }

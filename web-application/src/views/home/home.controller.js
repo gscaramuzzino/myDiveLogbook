@@ -2,7 +2,8 @@ let Manager = null;
 
 export default class HomeController {
   /*@ngInject;*/
-  constructor(LocalStorage) {
+  constructor(AuthManager) {
+    Manager = AuthManager;
     this.registration = {};
   }
 
