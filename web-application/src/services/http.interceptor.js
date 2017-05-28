@@ -1,7 +1,6 @@
 import toastr from 'toastr';
-
+HttpInterceptor.$inject= ["$q"];
 export default function HttpInterceptor($q) {
-  /*@ngInject;*/
 
   toastr.options = {
     "closeButton": true,

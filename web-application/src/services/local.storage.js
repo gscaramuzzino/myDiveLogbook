@@ -1,6 +1,6 @@
 
+LocalStorage.$inject= ["$window"];
 export default function LocalStorage($window) {
-    /*@ngInject;*/
 
     return {
         store: (key, value) => {

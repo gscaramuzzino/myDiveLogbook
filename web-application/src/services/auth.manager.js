@@ -1,6 +1,5 @@
-
+AuthManager.$inject = ["$resource", "$http", "$rootScope", "LocalStorage", "baseURL"];
 export default function AuthManager($resource, $http, $rootScope, LocalStorage, baseURL) {
-  /*@ngInject;*/
   let authFac = {},
     TOKEN_KEY = 'Token',
     isAuthenticated = false,
@@ -41,40 +40,33 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
     login: (loginData) => {
       $resource(baseURL + "users/login")
         .save(loginData,
-        function (response) {
-          storeUserCredentials({ username: loginData.username, token: response.token });
-          $rootScope.$broadcast('login:Successful');
-        },
-        function (response) { });
+          function (response) {
+            storeUserCredentials({
+              username: loginData.username,
+              token: response.token
+            });
+            $rootScope.$broadcast('login:Successful');
+          },
+          function (response) {});
     },
-
     register: (registerData) => {
-      $resource(baseURL + "users/register", registerData,
-        {
-          'save': { 'method': 'JSONP' }},
-          function(response) {
-            login({ username: registerData.username, password: registerData.password });
+      $resource(baseURL + "users/register")
+        .save(registerData,
+          function (response) {
+            login({
+              username: registerData.username,
+              password: registerData.password
+            });
             if (registerData.rememberMe) {
-              LocalStorage.store('userinfo',
-                { username: registerData.username, password: registerData.password });
+              LocalStorage.store('userinfo', {
+                username: registerData.username,
+                password: registerData.password
+              });
             }
             $rootScope.$broadcast('registration:Successful');
           },
-          function(response) { });
+          function (response) {});
     },
-
-    /* $resource(baseURL + "users/register")
-       .save(registerData,
-       function (response) {
-         login({ username: registerData.username, password: registerData.password });
-         if (registerData.rememberMe) {
-           LocalStorage.store('userinfo',
-             { username: registerData.username, password: registerData.password });
-         }
-         $rootScope.$broadcast('registration:Successful');
-       },
-       function (response) { });
-  },*/
 
     logout: () => {
       $resource(baseURL + "users/logout").get(function (response) {
@@ -82,17 +74,17 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
       });
     },
 
-      isAuthenticated: () => {
-        returnisAuthenticated;
-      },
+    isAuthenticated: () => {
+      returnisAuthenticated;
+    },
 
-        getUsername: () => {
-          return username;
-        }
+    getUsername: () => {
+      return username;
+    }
 
-};
+  };
 
-authManager.loadUserCredentials();
-return authManager;
+  authManager.loadUserCredentials();
+  return authManager;
 
 }

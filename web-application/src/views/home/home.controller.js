@@ -1,7 +1,5 @@
 let Manager = null;
-
 export default class HomeController {
-  /*@ngInject;*/
   constructor(AuthManager) {
     Manager = AuthManager;
     this.registration = {};
@@ -11,3 +9,4 @@ export default class HomeController {
     Manager.register(this.registration);
   }
 }
+HomeController.$inject = ["AuthManager"];
