@@ -7,6 +7,7 @@ export default class HomeController {
 
   doRegister() {
     Manager.register(this.registration);
+    this.registration = {};
   }
 }
 HomeController.$inject = ["AuthManager"];

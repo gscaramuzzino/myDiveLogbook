@@ -12,13 +12,13 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
     loadUserCredentials: () => {
       let credentials = LocalStorage.get(TOKEN_KEY, '{}');
       if (credentials.username != undefined) {
-        useCredentials(credentials);
+        authManager.useCredentials(credentials);
       }
     },
 
     storeUserCredentials: (credentials) => {
       LocalStorage.store(TOKEN_KEY, credentials);
-      useCredentials(credentials);
+      authManager.useCredentials(credentials);
     },
 
     useCredentials: (credentials) => {
@@ -41,7 +41,7 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
       $resource(baseURL + "users/login")
         .save(loginData,
           function (response) {
-            storeUserCredentials({
+            authManager.storeUserCredentials({
               username: loginData.username,
               token: response.token
             });
@@ -53,7 +53,7 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
       $resource(baseURL + "users/register")
         .save(registerData,
           function (response) {
-            login({
+            authManager.login({
               username: registerData.username,
               password: registerData.password
             });
@@ -70,12 +70,12 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
 
     logout: () => {
       $resource(baseURL + "users/logout").get(function (response) {
-        destroyUserCredentials();
+        authManager.destroyUserCredentials();
       });
     },
 
     isAuthenticated: () => {
-      returnisAuthenticated;
+      return isAuthenticated;
     },
 
     getUsername: () => {
