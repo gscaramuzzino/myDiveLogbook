@@ -1,4 +1,6 @@
 require("font-awesome-webpack");
+ import * as $ from 'jquery';
+
 import css from './styles/app.scss';
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
@@ -33,5 +35,6 @@ AppModule.controller("NavbarController", NavbarController);
 angular.element(document).ready(() => {
   angular.bootstrap(document, ['MyDiveLogbook']);
 });
+
 
 export default AppModule;

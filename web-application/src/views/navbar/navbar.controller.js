@@ -1,17 +1,22 @@
+
 export default class NavbarController {
-  constructor(LocalStorage, $rootScope, $state) {
+
+  constructor($rootScope, $state, AuthManager, UiManager) {
+    this.AuthManager = AuthManager;
+    this.UiManager = UiManager;
 
     $rootScope.$on('login:Successful', function () {
-      //this.loggedIn = AuthFactory.isAuthenticated();
-      //this.username = AuthFactory.getUsername();
       $state.go("app.logbook");
     });
 
     $rootScope.$on('registration:Successful', function () {
-      //this.loggedIn = AuthFactory.isAuthenticated();
-      //this.username = AuthFactory.getUsername();
+      this.UiManager.showMessageSuccess("Registration completed!");
     });
 
   }
+
+  isAuthenticated() {
+    return this.AuthManager.isAuthenticated();
+  }
 }
-NavbarController.$inject = ["LocalStorage", "$rootScope", "$state"];
+NavbarController.$inject = ["$rootScope", "$state", "AuthManager", "UiManager"];

@@ -84,7 +84,7 @@ module.exports = {
     hot: true,
     open: true //reload browser
   },
-  plugins: [
+  plugins: [new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: function (module) {

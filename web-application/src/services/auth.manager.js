@@ -49,6 +49,7 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
           },
           function (response) {});
     },
+
     register: (registerData) => {
       $resource(baseURL + "users/register")
         .save(registerData,

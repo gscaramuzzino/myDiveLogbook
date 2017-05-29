@@ -21,11 +21,13 @@ export default function UiManager($rootScope) {
 
     return {
         showMessageSuccess: (message) => {
-            toastr.success('Operation completed!' || message);
+            let msg = message != null ? message : 'Operation completed!';
+            toastr.success(msg);
         },
 
         showMessageError: (message) => {
-            toastr.error('Operation not completed!' || message);
+            let msg = message != null ? message : 'Operation not completed!';
+            toastr.error(msg);
         },
 
         showOverlay: () => {

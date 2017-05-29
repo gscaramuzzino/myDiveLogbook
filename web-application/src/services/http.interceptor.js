@@ -14,9 +14,6 @@ export default function HttpInterceptor($q, UiManager) {
 
     response: (response) => {
       UiManager.hideOverlay();
-      if (response.config.method == "POST") {
-        UiManager.showMessageSuccess('Error with the request!');
-      }
       return response;
     },
 
