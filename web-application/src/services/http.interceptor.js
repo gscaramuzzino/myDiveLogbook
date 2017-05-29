@@ -1,44 +1,28 @@
-import toastr from 'toastr';
-HttpInterceptor.$inject= ["$q"];
-export default function HttpInterceptor($q) {
-
-  toastr.options = {
-    "closeButton": true,
-    "debug": false,
-    "newestOnTop": true,
-    //"progressBar": true,
-    "positionClass": "toast-bottom-right",
-    "preventDuplicates": false,
-    "onclick": null,
-    "showDuration": "300",
-    "hideDuration": "1000",
-    "timeOut": "5000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-  };
+HttpInterceptor.$inject = ["$q", "UiManager"];
+export default function HttpInterceptor($q, UiManager) {
 
   return {
     request: (config) => {
+      UiManager.showOverlay();
       return config;
     },
 
     requestError: (rejection) => {
-      toastr.error('Error with the request!')
+      UiManager.showMessageError('Error with the request!');
       return $q.reject(rejection);
     },
 
     response: (response) => {
+      UiManager.hideOverlay();
       if (response.config.method == "POST") {
-        toastr.success('Operation completed!')
+        UiManager.showMessageSuccess('Error with the request!');
       }
       return response;
     },
 
     responseError: (rejection) => {
-      toastr.error('Operation not completed!')
+      UiManager.hideOverlay();
+      UiManager.showMessageError();
       return $q.reject(rejection);
     }
 

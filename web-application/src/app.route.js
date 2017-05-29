@@ -22,7 +22,7 @@ export default function AppRoute(stateProvider, urlProvider) {
   });
 
   stateProvider.state('app.profile', {
-    url: 'app.profile',
+    url: 'profile',
     views: {
       'content@': {
         templateUrl: require('./views/profile/profile.html'),
@@ -33,12 +33,23 @@ export default function AppRoute(stateProvider, urlProvider) {
   });
 
   stateProvider.state('app.dive', {
-    url: 'app.dive',
+    url: 'dive',
     views: {
       'content@': {
         templateUrl: require('./views/dive/dive.html'),
-        controller: 'DivesController',
+        controller: 'DiveController',
         controllerAs: '$dive'
+      }
+    }
+  });
+
+  stateProvider.state('app.logbook', {
+    url: 'logbook',
+    views: {
+      'content@': {
+        templateUrl: require('./views/logbook/logbook.html'),
+        controller: 'LogbookController',
+        controllerAs: '$logbook'
       }
     }
   });

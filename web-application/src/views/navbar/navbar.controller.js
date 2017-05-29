@@ -4,7 +4,7 @@ export default class NavbarController {
     $rootScope.$on('login:Successful', function () {
       //this.loggedIn = AuthFactory.isAuthenticated();
       //this.username = AuthFactory.getUsername();
-      $state.go("app.dive");
+      $state.go("app.logbook");
     });
 
     $rootScope.$on('registration:Successful', function () {
