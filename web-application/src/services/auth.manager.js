@@ -1,7 +1,7 @@
 AuthManager.$inject = ["$resource", "$http", "$rootScope", "LocalStorage", "baseURL"];
 export default function AuthManager($resource, $http, $rootScope, LocalStorage, baseURL) {
   let authFac = {},
-    TOKEN_KEY = 'Token',
+    TOKEN_KEY = 'userinfo',
     isAuthenticated = false,
     username = '',
     authToken = undefined;
@@ -10,14 +10,16 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
   authManager = {
 
     loadUserCredentials: () => {
-      let credentials = LocalStorage.get(TOKEN_KEY, '{}');
+      let credentials = LocalStorage.getObject(TOKEN_KEY, '{}');
       if (credentials.username != undefined) {
         authManager.useCredentials(credentials);
+        return true;
       }
+      return false;
     },
 
     storeUserCredentials: (credentials) => {
-      LocalStorage.store(TOKEN_KEY, credentials);
+      LocalStorage.storeObject(TOKEN_KEY, credentials);
       authManager.useCredentials(credentials);
     },
 
@@ -59,7 +61,7 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
               password: registerData.password
             });
             if (registerData.rememberMe) {
-              LocalStorage.store('userinfo', {
+              LocalStorage.storeObject(TOKEN_KEY, {
                 username: registerData.username,
                 password: registerData.password
               });

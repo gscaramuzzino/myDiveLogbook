@@ -13,25 +13,30 @@ router.get('/', Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, re
 });
 
 /* API for a specific user */
-router.route('/:userId')
+/* API for a specific user */
+router.route('/profile')
+  .all(Verify.verifyOrdinaryUser)
   .get(function (req, res, next) {
-    User.findById(req.params.userId, function (err, user) {
+    var userId = req.decoded._doc._id;
+    User.findById(userId, function (err, user) {
       if (err) return next(err);
       else res.json(user);
     });
   })
   .put(function (req, res, next) {
-    User.findByIdAndUpdate(req.params.userId, {
+    var userId = req.decoded._doc._id;
+    User.findByIdAndUpdate(userId, {
       $set: req.body
     }, {
-      new: true
-    }, function (err, user) {
-      if (err) return next(err);
-      else res.json(user);
-    });
+        new: true
+      }, function (err, user) {
+        if (err) return next(err);
+        else res.json(user);
+      });
   })
   .delete(function (req, res, next) {
-    User.findByIdAndRemove(req.params.userId, function (err, resp) {
+    var userId = req.decoded._doc._id;
+    User.findByIdAndRemove(userId, function (err, resp) {
       if (err) return next(err);
       else res.json(resp);
     });
@@ -40,8 +45,8 @@ router.route('/:userId')
 /* Register new user */
 router.post('/register', function (req, res) {
   User.register(new User({
-      username: req.body.username
-    }),
+    username: req.body.username
+  }),
     req.body.password,
     function (err, user) {
       if (err) {
@@ -67,7 +72,7 @@ router.post('/register', function (req, res) {
 
 /* Register new user with his fb account */
 router.get('/facebook', passport.authenticate('facebook'),
-  function (req, res) {});
+  function (req, res) { });
 
 router.get('/facebook/callback', function (req, res, next) {
   passport.authenticate('facebook', function (err, user, info) {

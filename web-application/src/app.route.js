@@ -45,6 +45,9 @@ export default function AppRoute(stateProvider, urlProvider) {
 
   stateProvider.state('app.logbook', {
     url: 'logbook',
+    params: {
+      isFavourites: false,
+    },
     views: {
       'content@': {
         templateUrl: require('./views/logbook/logbook.html'),

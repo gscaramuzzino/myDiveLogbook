@@ -13,35 +13,48 @@
         <img alt="Brand" src="">
       </a>
     </div>
+    <div id="navbar-login" class="navbar-collapse collapse" ng-if="!$nav.isAuthenticated()">
+      <form class="form-inline navbar-form navbar-right" ng-submit="$nav.doLogin()">
+        <div class="form-group">
+          <label class="sr-only" for="email">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Email..." ng-model="$nav.login.username">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password..." ng-model="$nav.login.password">
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+    </div>
     <div id="navbar" class="navbar-collapse collapse" ng-if="$nav.isAuthenticated()">
       <ul class="nav navbar-nav">
         <li class="active">
-          <a href="#">
-            <i class="fa fa-book" aria-hidden="true"></i> Logshare
+          <a ui-sref="app.logbook()">
+            <i class="fa fa-book" aria-hidden="true"></i> Logbook
           </a>
         </li>
         <li>
-          <a href="#about">
+          <a ui-sref="app.logbook({isFavourites: true})">
             <i class="fa fa-heart" aria-hidden="true"></i> Favourites
           </a>
         </li>
         <li>
-          <a href="#contact">
+          <a ui-sref="app.certificate()">
             <i class="fa fa-graduation-cap" aria-hidden="true"></i> Certificate
           </a>
         </li>
         <li>
-          <a href="#contact">
+          <a ui-sref="app.profile()">
             <i class="fa fa-user" aria-hidden="true"></i> Profile
           </a>
         </li>
         <li>
-          <a href="#contact">
+          <a ui-sref="app.dive()">
             <i class="fa fa-plus" aria-hidden="true"></i> New dive
           </a>
         </li>
       </ul>
-      <button type="button" class="btn btn-primary btn-sm navbar-btn navbar-right">Log out</button>
+      <button type="button" class="btn btn-primary btn-sm navbar-btn navbar-right" ng-click="$nav.doLogout()">Sign out</button>
       <form class="navbar-form navbar-right">
         <div class="form-group">
           <input type="text" class="form-control input-sm" placeholder="Search dive...">
