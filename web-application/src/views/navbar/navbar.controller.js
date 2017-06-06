@@ -1,8 +1,11 @@
+let AuthManager = null,
+  UiManager = null;
 export default class NavbarController {
 
   constructor($rootScope, $state, AuthManager, UiManager) {
     this.AuthManager = AuthManager;
     this.UiManager = UiManager;
+    this.state = $state;
     this.login = {};
     if (this.AuthManager.loadUserCredentials()) {
       $state.go("app.logbook");
@@ -10,11 +13,13 @@ export default class NavbarController {
     $rootScope.$on('login:Successful', function () {
       $state.go("app.logbook");
     });
-
+    let myThis = this;
     $rootScope.$on('registration:Successful', function () {
-      this.UiManager.showMessageSuccess("Registration completed!");
+      myThis.UiManager.showMessageSuccess("Registration completed!");
     });
-
+    $rootScope.$on('logout:Successful', function () {
+      myThis.state.go("app");
+    });
   }
 
   isAuthenticated() {
@@ -23,6 +28,7 @@ export default class NavbarController {
 
   doLogin() {
     this.AuthManager.login(this.login);
+    this.login = {};
   }
 
   doLogout() {

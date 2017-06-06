@@ -4,7 +4,7 @@ export default function ProfileManager($resource) {
   return {
     get: (userId) => {
       UiManager.showOverlay();
-        $resource(baseURL + "users/register")
+      $resource(baseURL + "users/register")
         .save(registerData,
           function (response) {
             authManager.login({
@@ -32,6 +32,6 @@ export default function ProfileManager($resource) {
       UiManager.hideOverlay();
       return response;
     }
-  
+
   }
 }

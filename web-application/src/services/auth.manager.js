@@ -37,6 +37,7 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
       isAuthenticated = false;
       $http.defaults.headers.common['x-access-token'] = authToken;
       LocalStorage.remove(TOKEN_KEY);
+      $rootScope.$broadcast('logout:Successful');
     },
 
     login: (loginData) => {

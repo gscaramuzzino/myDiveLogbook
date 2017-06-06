@@ -12,6 +12,7 @@ import AppConfig from './app.config';
 import AuthManager from './services/auth.manager';
 import HttpInterceptor from './services/http.interceptor';
 import UiManager from './services/ui.manager';
+import LogbookManager from './views/logbook/logbook.manager';
 
 import NavbarController from './views/navbar/navbar.controller';
 import HomeController from './views/home/home.controller';
@@ -27,6 +28,7 @@ AppModule.factory("AuthManager", AuthManager);
 AppModule.factory("LocalStorage", LocalStorage);
 AppModule.factory("HttpInterceptor", HttpInterceptor);
 AppModule.factory("UiManager", UiManager);
+AppModule.factory("LogbookManager", LogbookManager);
 AppModule.controller("HomeController", HomeController);
 AppModule.controller("ProfileController", ProfileController);
 AppModule.controller("DiveController", DiveController);

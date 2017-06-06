@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
+    "integration": "rimraf ../rest-server/public/* && cross-env NODE_ENV=integration webpack -p --progress --colors --watch",
     "prod": "npm run clean && cross-env NODE_ENV=production webpack -p",
     "clean": "rimraf ./dist/*",
+    "copy": "cp -r dist/. ../rest-server/public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

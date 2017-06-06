@@ -1,9 +1,10 @@
 let Manager = null;
 export default class HomeController {
-  constructor(AuthManager) {
+  constructor($state, AuthManager) {
     Manager = AuthManager;
     this.registration = {};
     if (Manager.loadUserCredentials()) {
+      console.log("prova");
       $state.go("app.logbook");
     }
   }
@@ -13,4 +14,4 @@ export default class HomeController {
     this.registration = {};
   }
 }
-HomeController.$inject = ["AuthManager"];
+HomeController.$inject = ["$state","AuthManager"];

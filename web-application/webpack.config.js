@@ -7,6 +7,7 @@ const glob = require('glob');
 const PurifyCSSPlugin = require('purifycss-webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
+const distFolder = process.env.NODE_ENV === 'integration' ? '../rest-server/public/' : './dist';
 const cssDev = ['style-loader', 'css-loader', 'sass-loader'];
 const cssProd = ExtractTextPlugin.extract({ //module to compile e load css and sass
   fallback: 'style-loader',
@@ -24,7 +25,7 @@ module.exports = {
     app: './src/app.js'
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, distFolder),
     filename: 'js/[name].[hash].js'
   },
   module: {
@@ -84,7 +85,10 @@ module.exports = {
     hot: true,
     open: true //reload browser
   },
-  plugins: [new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }),
+  plugins: [new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: function (module) {
