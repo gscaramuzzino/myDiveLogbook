@@ -1,18 +1,31 @@
 require("./../../images/user_picture.jpg");
-let isFavourites = null;
-export default class LogbookController {
-  constructor($transition$, Manager) {
-    isFavourites = $transition$.params().isFavourites;
-    this.Manager = Manager;
+LogbookController.$inject = ["$transition$", "$state", "LogbookManager", "User"];
+export default function LogbookController($transition$, $state, Manager, User) {
+  const isFavourites = $transition$.params().isFavourites;
+  let user = User.getUser();
+
+  this.$onInit = () => {
+    this.data = [];
     Manager.get()
       .$promise.then(
         function (response) {},
         function (response) {}
-      );
+      )
   }
 
-  isFavourites() {
+  this.getColspan = () => {
+    return isFavourites ? 2 : 1;
+  }
+
+  this.getNameSurname = () => {
+    return User.getUser()&&User.getUser().firstname + " " + User.getUser().lastname;
+  }
+
+  this.isFavourites = () => {
     return isFavourites;
   }
+
+  this.createDive = () => {
+    $state.go("app.dive");
+  }
 }
-LogbookController.$inject = ["$transition$", "LogbookManager"];

@@ -9,7 +9,7 @@ export default class NavbarController {
     this.login = {};
     if (this.AuthManager.loadUserCredentials()) {
       $state.go("app.logbook");
-    }
+    } 
     $rootScope.$on('login:Successful', function () {
       $state.go("app.logbook");
     });

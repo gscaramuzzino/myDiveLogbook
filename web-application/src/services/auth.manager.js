@@ -1,5 +1,5 @@
-AuthManager.$inject = ["$resource", "$http", "$rootScope", "LocalStorage", "baseURL"];
-export default function AuthManager($resource, $http, $rootScope, LocalStorage, baseURL) {
+AuthManager.$inject = ["$resource", "$http", "$rootScope", "LocalStorage", "baseURL", "User"];
+export default function AuthManager($resource, $http, $rootScope, LocalStorage, baseURL, User) {
   let authFac = {},
     TOKEN_KEY = 'userinfo',
     isAuthenticated = false,
@@ -13,6 +13,7 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
       let credentials = LocalStorage.getObject(TOKEN_KEY, '{}');
       if (credentials.username != undefined) {
         authManager.useCredentials(credentials);
+        authManager.getUserProfile();
         return true;
       }
       return false;
@@ -40,6 +41,12 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
       $rootScope.$broadcast('logout:Successful');
     },
 
+    getUserProfile() {
+      $resource(baseURL + "users/profile").get(function (user) {
+        User.setUser(user);
+      });
+    },
+
     login: (loginData) => {
       $resource(baseURL + "users/login")
         .save(loginData,
@@ -48,6 +55,7 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
               username: loginData.username,
               token: response.token
             });
+            authManager.getUserProfile();
             $rootScope.$broadcast('login:Successful');
           },
           function (response) {});
@@ -85,10 +93,8 @@ export default function AuthManager($resource, $http, $rootScope, LocalStorage, 
     getUsername: () => {
       return username;
     }
-
   };
 
-  authManager.loadUserCredentials();
   return authManager;
 
 }

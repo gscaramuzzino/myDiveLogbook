@@ -6,6 +6,8 @@ import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
 import ngResource from 'angular-resource';
 
+import User from './models/user';
+
 import LocalStorage from './services/local.storage';
 import AppRouter from './app.route';
 import AppConfig from './app.config';
@@ -24,6 +26,7 @@ let AppModule = angular.module("MyDiveLogbook", ['ui.router', 'ngResource']);
 AppModule.constant("baseURL", "https://localhost:3443/");
 AppModule.config(AppRouter);
 AppModule.config(AppConfig);
+AppModule.factory("User", User);
 AppModule.factory("AuthManager", AuthManager);
 AppModule.factory("LocalStorage", LocalStorage);
 AppModule.factory("HttpInterceptor", HttpInterceptor);

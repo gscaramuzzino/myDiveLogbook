@@ -1,4 +1,3 @@
-
 LocalStorage.$inject= ["$window"];
 export default function LocalStorage($window) {
 
