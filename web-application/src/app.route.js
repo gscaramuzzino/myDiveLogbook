@@ -32,6 +32,17 @@ export default function AppRoute(stateProvider, urlProvider) {
     }
   });
 
+  stateProvider.state('app.certificate', {
+    url: 'certificate',
+    views: {
+      'content@': {
+        templateUrl: require('./views/certificate/certificate.html'),
+        controller: 'CertificateController',
+        controllerAs: '$certificate'
+      }
+    }
+  });
+
   stateProvider.state('app.dive', {
     url: 'dive',
     views: {

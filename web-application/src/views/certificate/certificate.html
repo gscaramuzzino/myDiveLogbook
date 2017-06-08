@@ -2,73 +2,97 @@
     <div class="row">
         <div class="col-xs-12">
             <ol class="breadcrumb pull-right">
-                <li><a href="#">Home</a></li>
+                <li><a ui-sref="app.logbook">Home</a></li>
                 <li class="active">Certificate</li>
             </ol>
         </div>
     </div>
 
-    <!-- Main component for a primary marketing message or call to action -->
-
     <div class="row">
         <div class="col-xs-12 col-sm-6">
-            <form class="form-horizontal form-certificate">
+            <form class="form-horizontal form-certificate" ng-submit="$certificate.doAdd()">
                 <fieldset>
-                    <legend class="scheduler-border">Certificate:</legend>
-
-                    <div class="form-group">
-                        <label for="name" class="col-sm-3 control-label">Name</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="name" placeholder="Name..." disabled>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="surname" class="col-sm-3 control-label">Surname</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="surname" placeholder="Surname..." disabled>
-                        </div>
-                    </div>
+                    <legend class="scheduler-border">New certificate:</legend>
                     <div class="form-group">
                         <label for="numCert" class="col-sm-3 control-label">N° certificate</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control" id="numCert" placeholder="N° Certificate.." disabled>
+                            <input type="text" class="form-control" id="numCert" placeholder="N° Certificate.." ng-model="$certificate.newCertificate.numLicence">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="numInstructor" class="col-sm-3 control-label">N° instructor</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="numInstructor" placeholder="N° instructor..." ng-model="$certificate.newCertificate.numInstructor">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="typeLicence" class="col-sm-3 control-label">Type certificate</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="typeLicence" placeholder="Type certificate..." ng-model="$certificate.newCertificate.typeLicence">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateOfLicence" class="col-sm-3 control-label">Date certificate</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="dateOfLicence" placeholder="Date of certificate..." ng-model="$certificate.newCertificate.dateOfLicence">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="diveCenter" class="col-sm-3 control-label">Dive center</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="diveCenter" placeholder="Dive center..." ng-model="$certificate.newCertificate.diveCenter">
                         </div>
                     </div>
                     <div class="form-group pull-right button-group-certificate">
+                        <button type="button" class="btn btn-default" ng-click="$certificate.cancelForm()">Cancel</button>
                         <button type="submit" class="btn btn-primary">
-                <i class="fa fa-edit"></i> Edit</button>
+                        <i class="fa fa-save"></i> Save
+                        </button>
                     </div>
                 </fieldset>
             </form>
         </div>
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-sm-6" ng-if="$certificate.data.length > 0" ng-repeat="cert in $certificate.data">
             <form class="form-horizontal form-certificate">
                 <fieldset>
                     <legend class="scheduler-border">Certificate:</legend>
-
-                    <div class="form-group">
-                        <label for="name" class="col-sm-3 control-label">Name</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="name" placeholder="Name...">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="surname" class="col-sm-3 control-label">Surname</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="surname" placeholder="Surname...">
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label for="numCert" class="col-sm-3 control-label">N° certificate</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control" id="numCert" placeholder="N° Certificate..">
+                            <input type="text" class="form-control" id="numCert" placeholder="N° Certificate.." ng-model="cert.numLicence" ng-disabled="!cert.enabled">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="numInstructor" class="col-sm-3 control-label">N° instructor</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="numInstructor" placeholder="N° instructor..." ng-model="cert.numInstructor" ng-disabled="!cert.enabled">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="typeLicence" class="col-sm-3 control-label">Type certificate</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="typeLicence" placeholder="Type certificate..." ng-model="cert.typeLicence" ng-disabled="!cert.enabled">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateOfLicence" class="col-sm-3 control-label">Date certificate</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="dateOfLicence" placeholder="Date of certificate..."  ng-model="cert.dateOfLicence" ng-disabled="!cert.enabled">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="diveCenter" class="col-sm-3 control-label">Dive center</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="diveCenter" placeholder="Dive center..." ng-model="cert.diveCenter" ng-disabled="!cert.enabled">
                         </div>
                     </div>
                     <div class="form-group pull-right button-group-certificate">
-                        <button type="submit" class="btn btn-default">Cancel</button>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="button" class="btn btn-default" ng-if="cert.enabled" ng-click="$certificate.doCancel(cert, $index)">Cancel</button>
+                        <button type="submit" class="btn btn-primary" ng-if="cert.enabled">
                         <i class="fa fa-save"></i> Save
                         </button>
+                        <button type="button" class="btn btn-primary" ng-click="$certificate.doEdit(cert, $index)" ng-if="!cert.enabled">
+                        <i class="fa fa-edit"></i> Edit</button>
                     </div>
                 </fieldset>
             </form>

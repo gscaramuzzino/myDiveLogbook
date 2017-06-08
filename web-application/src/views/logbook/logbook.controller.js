@@ -7,7 +7,7 @@ export default function LogbookController($transition$, $state, Manager, User) {
   this.$onInit = () => {
     this.data = [];
     Manager.get()
-      .$promise.then(
+      .$promise.then( 
         function (response) {},
         function (response) {}
       )
@@ -28,4 +28,4 @@ export default function LogbookController($transition$, $state, Manager, User) {
   this.createDive = () => {
     $state.go("app.dive");
   }
-}
+} 
