@@ -9,13 +9,15 @@ export default function CertificateController(Manager, UiManager) {
   vm.$onInit = () => {
     Manager.query()
       .$promise.then(
-      function (response) {
-        vm.data = response[0].licence;
-        vm.data.forEach(function (item) {
-          item.dateOfLicence&&(item.dateOfLicence = new Date(item.dateOfLicence));
-        });
-      },
-      function (response) { }
+        function (response) {
+          if (response[0] != undefined) {
+            vm.data = response[0].licence;
+            vm.data.forEach(function (item) {
+              item.dateOfLicence && (item.dateOfLicence = new Date(item.dateOfLicence));
+            });
+          }
+        },
+        function (response) {}
       );
   }
 
@@ -24,8 +26,10 @@ export default function CertificateController(Manager, UiManager) {
     cert.enabled = true;
   }
 
-  vm.cancelForm = () => {
+  vm.cancelForm = (form) => {
     vm.newCertificate = {};
+    form.$setPristine(true);
+    form.$valid = true;
   }
 
   vm.doCancel = (cert, index) => {
@@ -33,9 +37,11 @@ export default function CertificateController(Manager, UiManager) {
     cert.enabled = false;
   }
 
-  vm.doAdd = () => {
+  vm.doAdd = (form) => {
     Manager.save(vm.newCertificate, function (response) {
       UiManager.showMessageSuccess();
+      vm.data.unshift(vm.newCertificate);
+      vm.cancelForm(form);
     });
   }
 

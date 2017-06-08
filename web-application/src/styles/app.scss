@@ -79,6 +79,11 @@
                margin-right: 12px;
            }
        }
+       .button-group-certificate {
+           .btn {
+               margin-right: 12px !important;
+           }
+       }
        textarea {
            width: 106%;
        }
@@ -154,4 +159,8 @@
        i {
            cursor: pointer;
        }
+   }
+
+   .simbol-field-required {
+       color: #d9534f;
    }

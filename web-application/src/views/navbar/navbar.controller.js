@@ -20,6 +20,10 @@ export default class NavbarController {
     $rootScope.$on('logout:Successful', function () {
       myThis.state.go("app");
     });
+    $rootScope.$on('credentials:Invalid', function() {
+      myThis.AuthManager.destroyUserCredentials();
+      myThis.state.go("app");
+    });
   }
 
   isAuthenticated() {

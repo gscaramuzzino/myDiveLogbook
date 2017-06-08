@@ -1,5 +1,5 @@
-HttpInterceptor.$inject = ["$q", "UiManager"];
-export default function HttpInterceptor($q, UiManager) {
+HttpInterceptor.$inject = ["$q", "$rootScope","UiManager"];
+export default function HttpInterceptor($q,$rootScope, UiManager) {
 
   return {
     request: (config) => {
@@ -18,8 +18,12 @@ export default function HttpInterceptor($q, UiManager) {
     },
 
     responseError: (rejection) => {
+      console.log(rejection);
       UiManager.hideOverlay();
       UiManager.showMessageError();
+      if (rejection.status == 401) {
+        $rootScope.$broadcast('credentials:Invalid');
+      }
       return $q.reject(rejection);
     }
 
