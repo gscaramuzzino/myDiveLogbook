@@ -25,7 +25,7 @@ import LogbookController from './views/logbook/logbook.controller';
 import CertificateController from './views/certificate/certificate.controller';
 
 let AppModule = angular.module("MyDiveLogbook", ['ui.router', 'ngResource']);
-AppModule.constant("baseURL", "https://localhost:3443/");
+AppModule.constant("baseURL", "");
 AppModule.config(AppRouter);
 AppModule.config(AppConfig);
 AppModule.factory("User", User);

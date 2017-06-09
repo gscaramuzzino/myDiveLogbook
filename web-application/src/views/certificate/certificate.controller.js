@@ -33,15 +33,22 @@ export default function CertificateController(Manager, UiManager) {
   }
 
   vm.doCancel = (cert, index) => {
-    this.data[index] = angular.copy(storeOriginalElementInEdit[index]);
+    vm.data[index] = angular.copy(storeOriginalElementInEdit[index]);
     cert.enabled = false;
   }
 
   vm.doAdd = (form) => {
-    Manager.save(vm.newCertificate, function (response) {
+    Manager.save(vm.newCertificate, (response) => {
       UiManager.showMessageSuccess();
       vm.data.unshift(vm.newCertificate);
       vm.cancelForm(form);
+    });
+  }
+
+  vm.doDelete = (index) => {
+    let certificateId = vm.data[index]._id;
+    Manager.remove(({id: certificateId}) => {
+
     });
   }
 
@@ -50,5 +57,9 @@ export default function CertificateController(Manager, UiManager) {
       vm.disableForm = true;
       UiManager.showMessageSuccess();
     });
+  }
+
+  vm.getNameForm = (index) => {
+    return "_form" + index;
   }
 }
