@@ -13,7 +13,7 @@
             <form class="form-horizontal form-certificate" ng-submit="formCertificate.$valid && $certificate.doAdd(formCertificate)"
                 novalidate name="formCertificate">
                 <fieldset>
-                    <legend class="scheduler-border">New certificate:</legend>
+                    <legend class="scheduler-border"> <i class="fa fa-graduation-cap" aria-hidden="true"></i> New certificate:</legend>
                     <div class="form-group" ng-class="{ 'has-error' : formCertificate.numCert.$invalid && formCertificate.$submitted }">
                         <label for="numCert" class="col-sm-3 control-label">N° certificate <span class="simbol-field-required">*</span> </label>
                         <div class="col-sm-9">
@@ -63,43 +63,52 @@
                 </fieldset>
             </form>
         </div>
-        <div class="col-xs-12 col-sm-6" ng-if="$certificate.data.length > 0" ng-repeat="cert in $certificate.data">
-            <form class="form-horizontal form-certificate">
+        <div class="col-xs-12 col-sm-6" ng-if="$certificate.data.length > 0" ng-repeat="cert in $certificate.data | orderBy:'numLicence' ">
+            <form class="form-horizontal form-certificate" ng-submit="cert.form.$valid && $certificate.doUpdate(cert, $index)" novalidate name="cert.form">
                 <fieldset>
-                    <legend class="scheduler-border">Certificate:</legend>
-                    <div class="form-group">
-                        <label for="numCert" class="col-sm-3 control-label">N° certificate</label>
+                    <legend class="scheduler-border"> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Certificate:</legend>
+                    <div class="form-group" ng-class="{ 'has-error' : cert.form.numCert.$invalid && cert.form.$submitted }">
+                        <label for="numCert" class="col-sm-3 control-label">N° certificate <span class="simbol-field-required" ng-if="cert.enabled">*</span> </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="numCert" placeholder="N° Certificate.." ng-model="cert.numLicence" ng-disabled="!cert.enabled">
+                            <input type="text" class="form-control" id="numCert" name="numCert" placeholder="N° Certificate.." ng-model="cert.numLicence" ng-disabled="!cert.enabled"
+                                required>
+                            <p ng-show="cert.form.numCert.$invalid && cert.form.$submitted" class="help-block">Enter n° certificate.</p>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="numInstructor" class="col-sm-3 control-label">N° instructor</label>
+                    <div class="form-group" ng-class="{ 'has-error' : cert.form.numInstructor.$invalid && cert.form.$submitted }">
+                        <label for="numInstructor" class="col-sm-3 control-label">N° instructor <span class="simbol-field-required" ng-if="cert.enabled">*</span>  </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="numInstructor" placeholder="N° instructor..." ng-model="cert.numInstructor" ng-disabled="!cert.enabled">
+                            <input type="text" class="form-control" id="numInstructor" name="numInstructor" placeholder="N° instructor..." ng-model="cert.numInstructor" ng-disabled="!cert.enabled"
+                                required>
+                            <p ng-show="cert.form.numInstructor.$invalid && cert.form.$submitted" class="help-block">Enter n° instructor.</p>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="typeLicence" class="col-sm-3 control-label">Type certificate</label>
+                    <div class="form-group" ng-class="{ 'has-error' : cert.form.typeLicence.$invalid && cert.form.$submitted }">
+                        <label for="typeLicence" class="col-sm-3 control-label">Type certificate <span class="simbol-field-required" ng-if="cert.enabled">*</span> </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="typeLicence" placeholder="Type certificate..." ng-model="cert.typeLicence" ng-disabled="!cert.enabled">
+                            <input type="text" class="form-control" id="typeLicence" name="typeLicence" placeholder="Type certificate..." ng-model="cert.typeLicence" ng-disabled="!cert.enabled"
+                                required>
+                            <p ng-show="cert.form.typeLicence.$invalid && cert.form.$submitted" class="help-block">Enter type certificate.</p>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="dateOfLicence" class="col-sm-3 control-label">Date certificate</label>
+                    <div class="form-group" ng-class="{ 'has-error' : cert.form.dateOfLicence.$invalid && cert.form.$submitted }">
+                        <label for="dateOfLicence" class="col-sm-3 control-label">Date certificate <span class="simbol-field-required" ng-if="cert.enabled">*</span> </label>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control" id="dateOfLicence" placeholder="Date of certificate..." ng-model="cert.dateOfLicence"
-                                ng-disabled="!cert.enabled">
+                            <input type="date" class="form-control" id="dateOfLicence" name="dateOfLicence" placeholder="Date of certificate..." ng-model="cert.dateOfLicence" ng-disabled="!cert.enabled"
+                                required>
+                            <p ng-show="cert.form.dateOfLicence.$invalid && cert.form.$submitted" class="help-block">Enter date certificate.</p>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="diveCenter" class="col-sm-3 control-label">Dive center</label>
+                    <div class="form-group" ng-class="{ 'has-error' : cert.form.diveCenter.$invalid && cert.form.$submitted }">
+                        <label for="diveCenter" class="col-sm-3 control-label">Dive center <span class="simbol-field-required" ng-if="cert.enabled">*</span> </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="diveCenter" placeholder="Dive center..." ng-model="cert.diveCenter" ng-disabled="!cert.enabled">
+                            <input type="text" class="form-control" id="diveCenter" name="diveCenter" placeholder="Dive center..." ng-model="cert.diveCenter" ng-disabled="!cert.enabled"
+                                required>
+                            <p ng-show="cert.form.diveCenter.$invalid && cert.form.$submitted" class="help-block">Enter dive center.</p>
                         </div>
                     </div>
                     <div class="form-group button-group-certificate">
-                        <button type="button" class="btn btn-danger pull-left" ng-if="cert.enabled" ng-click="$certificate.doDelete()">Delete</button>
+                        <button type="button" class="btn btn-danger pull-left" ng-if="cert.enabled" ng-click="$certificate.doDelete($index)">Delete</button>
                         <button type="submit" class="btn btn-primary pull-right" ng-if="cert.enabled">
                         <i class="fa fa-save"></i> Save
                         </button>

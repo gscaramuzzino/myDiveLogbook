@@ -9,38 +9,45 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-12 col-sm-10">
-            <form class="form-horizontal form-profile" ng-submit="$profile.doSave()">
+        <div class="col-xs-12 col-sm-offset-1 col-sm-10">
+            <form class="form-horizontal form-profile" ng-submit="formProfile.$valid && $profile.doSave()" name="formProfile" novalidate>
                 <fieldset>
-                    <legend class="scheduler-border">Profile:</legend>
-                    <div class="form-group">
-                        <label for="name" class="col-sm-3 control-label">Name</label>
+                    <legend class="scheduler-border"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile:
+                    </legend>
+                    <div class="form-group" ng-class="{ 'has-error' : formProfile.firstname.$invalid && formProfile.$submitted }">
+                        <label for="name" class="col-sm-3 control-label">Name <span class="simbol-field-required" ng-if="!$profile.disableForm">*</span> </label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="name" placeholder="Name..." ng-model="$profile.user.firstname" ng-disabled="$profile.disableForm">
+                            <input type="text" class="form-control" id="name" name="firstname" placeholder="Name..." ng-model="$profile.user.firstname"
+                                ng-disabled="$profile.disableForm" required>
+                            <p ng-show="formProfile.firstname.$invalid && formProfile.$submitted" class="help-block">Enter name.</p>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="surname" class="col-sm-3 control-label">Surname</label>
+                    <div class="form-group" ng-class="{ 'has-error' : formProfile.lastname.$invalid && formProfile.$submitted }">
+                        <label for="surname" class="col-sm-3 control-label">Surname <span class="simbol-field-required" ng-if="!$profile.disableForm">*</span></label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="surname" placeholder="Surname..." ng-model="$profile.user.lastname" ng-disabled="$profile.disableForm">
+                            <input type="text" class="form-control" id="surname" name="lastname" placeholder="Surname..." ng-model="$profile.user.lastname" required
+                                ng-disabled="$profile.disableForm">
+                            <p ng-show="formProfile.lastname.$invalid && formProfile.$submitted" class="help-block">Enter surname.</p>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{ 'has-error' : formProfile.address.$invalid && formProfile.$submitted }">
                         <label for="address" class="col-sm-3 control-label">Address</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="address" placeholder="Address..." ng-model="$profile.user.address" ng-disabled="$profile.disableForm">
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Address..." ng-model="$profile.user.address"
+                                ng-disabled="$profile.disableForm">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{ 'has-error' : formProfile.dateOfBirth.$invalid && formProfile.$submitted }">
                         <label for="dateOfBirth" class="col-sm-3 control-label">Date of Birth</label>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control" id="dateOfBirth" placeholder="Address..." ng-model="$profile.user.dateOfBirth" ng-disabled="$profile.disableForm">
+                            <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" placeholder="Address..." ng-model="$profile.user.dateOfBirth"
+                                ng-disabled="$profile.disableForm">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{ 'has-error' : formProfile.phone.$invalid && formProfile.$submitted }">
                         <label for="phone" class="col-sm-3 control-label">Phone</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="phone" placeholder="Phone..." ng-model="$profile.user.phone" ng-disabled="$profile.disableForm">
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone..." ng-model="$profile.user.phone" ng-disabled="$profile.disableForm">
                         </div>
                     </div>
                     <div class="form-group">

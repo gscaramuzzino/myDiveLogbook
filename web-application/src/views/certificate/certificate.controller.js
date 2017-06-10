@@ -7,18 +7,9 @@ export default function CertificateController(Manager, UiManager) {
   vm.disableForm = true;
 
   vm.$onInit = () => {
-    Manager.query()
-      .$promise.then(
-        function (response) {
-          if (response[0] != undefined) {
-            vm.data = response[0].licence;
-            vm.data.forEach(function (item) {
-              item.dateOfLicence && (item.dateOfLicence = new Date(item.dateOfLicence));
-            });
-          }
-        },
-        function (response) {}
-      );
+    Manager.get().then((cert) => {
+      vm.data = cert;
+    });
   }
 
   vm.doEdit = (cert, index) => {
@@ -38,7 +29,7 @@ export default function CertificateController(Manager, UiManager) {
   }
 
   vm.doAdd = (form) => {
-    Manager.save(vm.newCertificate, (response) => {
+    Manager.add(vm.newCertificate).then((response) => {
       UiManager.showMessageSuccess();
       vm.data.unshift(vm.newCertificate);
       vm.cancelForm(form);
@@ -47,16 +38,22 @@ export default function CertificateController(Manager, UiManager) {
 
   vm.doDelete = (index) => {
     let certificateId = vm.data[index]._id;
-    Manager.remove(({id: certificateId}) => {
+    Manager.delete(certificateId).then(() => {
+      UiManager.showMessageSuccess();
+      vm.data.splice(index, 1);
+    });
 
+  }
+
+  vm.doUpdate = (cert, index) => {
+    Manager.update(vm.data[index]).then(() => {
+      UiManager.showMessageSuccess();
+      cert.enabled = false;
     });
   }
 
-  vm.doSave = () => {
-    User.action().update(vm.user, () => {
-      vm.disableForm = true;
-      UiManager.showMessageSuccess();
-    });
+  vm.getNameForm = (index) => {
+    return "_form" + index;
   }
 
   vm.getNameForm = (index) => {

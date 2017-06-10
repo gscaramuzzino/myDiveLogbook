@@ -1,19 +1,23 @@
 ProfileController.$inject = ["User", "UiManager"];
 export default function ProfileController(User, UiManager) {
-    this.user = User.getUser();
-    this.disableForm = true;
+    let vm = this;
+    let originalUser = angular.copy(User.getUser());
+    vm.user = User.getUser();
+    vm.disableForm = true;
 
-    this.editForm = () => {
-        this.disableForm = false;
+    vm.editForm = () => {
+        vm.disableForm = false;
     }
 
-    this.cancelForm = () => {
-        this.disableForm = true;
+    vm.cancelForm = () => {
+        vm.disableForm = true;
+        vm.user = angular.copy(originalUser);
     }
 
-    this.doSave = () => {
-        User.action().update(this.user, () => {
-            this.disableForm = true;
+    vm.doSave = () => {
+        User.action().update(vm.user, () => {
+            vm.disableForm = true;
+            originalUser = angular.copy(vm.user);
             UiManager.showMessageSuccess();
         });
     }
