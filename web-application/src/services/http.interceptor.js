@@ -21,9 +21,9 @@ export default function HttpInterceptor($q, $rootScope, UiManager) {
       if (rejection.status == 401) {
         $rootScope.$broadcast('credentials:Invalid');
       } else {
-        UiManager.hideOverlay();
         UiManager.showMessageError();
       }
+      UiManager.hideOverlay();
       return $q.reject(rejection);
     }
 

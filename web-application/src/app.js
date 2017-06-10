@@ -1,4 +1,5 @@
 require("font-awesome-webpack");
+require('./images/favicon.ico')
  import * as $ from 'jquery';
 
 import css from './styles/app.scss';

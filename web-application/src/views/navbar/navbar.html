@@ -51,6 +51,11 @@
             <i class="fa fa-plus" aria-hidden="true"></i> New dive
           </a>
         </li>
+        <li>
+          <a ui-sref="app.info()">
+            <i class="fa fa-info-circle" aria-hidden="true"></i> Informations
+          </a>
+        </li>
       </ul>
       <button type="button" class="btn btn-primary btn-sm navbar-btn navbar-right" ng-click="$nav.doLogout()" ng-if="$nav.isAuthenticated()">Sign out</button>
       <form class="navbar-form navbar-right" ng-if="$nav.isAuthenticated()">

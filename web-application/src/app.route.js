@@ -16,7 +16,7 @@ export default function AppRoute(stateProvider, urlProvider) {
         controllerAs: '$home'
       },
       'footer': {
-        templateUrl: ""
+        templateUrl: require('./views/footer/footer.html'),
       }
     }
   });
@@ -39,6 +39,16 @@ export default function AppRoute(stateProvider, urlProvider) {
         templateUrl: require('./views/certificate/certificate.html'),
         controller: 'CertificateController',
         controllerAs: '$certificate'
+      }
+    }
+  });
+
+
+  stateProvider.state('app.info', {
+    url: 'info',
+    views: {
+      'content@': {
+        templateUrl: require('./views/info/info.html')
       }
     }
   });

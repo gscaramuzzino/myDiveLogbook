@@ -168,3 +168,48 @@
    .fa {
        margin-bottom: 3px;
    }
+   .row-word {
+      & .fa-3x{
+           margin-left: 10px;
+       }
+   }
+   /* Sticky footer styles
+-------------------------------------------------- */
+
+   html {
+       position: relative;
+       min-height: 100%;
+   }
+
+   row-word {
+       border-radius: 21px;
+       background-color: rgba(238, 238, 238, 0.28);
+       padding: 52px;
+   }
+
+   .footer {
+       position: absolute;
+       bottom: 0;
+       width: 100%;
+       /* Set the fixed height of the footer here */
+       height: 30px;
+       line-height: 30px;
+       /* Vertically center the text there */
+       background-color: #f5f5f5;
+   }
+   /* Custom page CSS
+-------------------------------------------------- */
+   /* Not required for template or sticky footer method. */
+
+   body>.container {
+       padding: 60px 15px 0;
+   }
+
+   .footer>.container {
+       padding-right: 15px;
+       padding-left: 15px;
+   }
+
+   code {
+       font-size: 80%;
+   }
