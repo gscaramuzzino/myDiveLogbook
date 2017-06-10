@@ -25,7 +25,6 @@ divesRouter
 
     .post(function (req, res, next) {
         req.body.user = req.decoded._doc._id;
-
         Dives.create(req.body, function (err, succ) {
             if (err) return next(err);
             else res.json(succ);
@@ -36,6 +35,18 @@ divesRouter
 divesRouter
     .route('/:diveId')
     .all(Verify.verifyOrdinaryUser)
+    .get(function (req, res, next) {
+        var userId = req.decoded._doc._id;
+        req.body.user = userId;
+
+        Dives.findOne({
+            "user": userId,
+            "_id": req.params.diveId,
+        }, function (err, dive) {
+            if (err) return next(err);
+            else res.json(dive);
+        });
+    })
     .put(function (req, res, next) {
         var userId = req.decoded._doc._id;
         req.body.user = userId;

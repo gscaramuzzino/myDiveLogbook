@@ -1,187 +1,215 @@
 <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <ol class="breadcrumb pull-right">
-          <li><a href="#">Home</a></li>
-          <li class="active">New dive</li>
-        </ol>
-      </div>
-    </div>
-
-    <!-- Main component for a primary marketing message or call to action -->
-
-    <div class="row">
-      <div class="col-xs-12">
-        <form class="form-horizontal form-profile">
-          <fieldset>
-            <legend class="scheduler-border">New dive:</legend>
-            <div class="row">
-              <div class="col-xs-12 col-sm-6">
-                <div class="form-group">
-                  <label for="numDive" class="col-sm-3 control-label">N° dive</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="numDive" placeholder="N° dive...">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="date" class="col-sm-3 control-label">Date</label>
-                  <div class="col-sm-9">
-                    <input type="date" class="form-control" id="date" placeholder="Date...">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="visibility" class="col-sm-3 control-label">Adress</label>
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control" id="visibility" placeholder="Visibility...">
-                  </div>
-                  <div class="checkbox col-sm-2">
-                    <label>
-                      <input type="checkbox"> m
-                    </label>
-                  </div>
-                  <div class="checkbox col-sm-2">
-                    <label>
-                      <input type="checkbox"> ft
-                    </label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="location" class="col-sm-3 control-label">Date of Birth</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="location" placeholder="Location...">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="weight" class="col-sm-3 control-label">Weight</label>
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control" id="weight" placeholder="Weight...">
-                  </div>
-                  <div class="checkbox col-sm-2">
-                    <label>
-                      <input type="checkbox"> kg
-                    </label>
-                  </div>
-                  <div class="checkbox col-sm-2">
-                    <label>
-                      <input type="checkbox"> lb
-                    </label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="weight" class="col-sm-3 control-label">Temperature</label>
-                  <div class="col-sm-4">
-                    <input type="text" class="form-control" id="weight" placeholder="Temperature...">
-                  </div>
-                  <div class="checkbox col-sm-1">
-                    <label>
-                      <input type="checkbox"> air
-                    </label>
-                  </div>
-                  <div class="checkbox col-sm-2">
-                    <label>
-                      <input type="checkbox"> bottom
-                    </label>
-                  </div>
-                  <div class="checkbox col-sm-1">
-                    <label>
-                      <input type="checkbox"> surface
-                    </label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="protection" class="col-sm-3 control-label">Protection</label>
-                  <div class="col-sm-9">
-                    <select name="protection" class="form-control btn-block">
-                      <option value="wetsuits">Wetsuits</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="conditions" class="col-sm-3 control-label">Conditions</label>
-                  <div class="col-sm-9">
-                    <select name="conditions" class="form-control btn-block">
-                      <option value="fresh">Fresh / salt water</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="depth" class="col-sm-3 control-label">Depth</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control" id="depth" placeholder="Depth...">
-                  </div>
-                  <label for="time" class="col-sm-3 control-label label-right">Time</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control" id="time" placeholder="Time...">
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6">
-                <div class="form-group">
-                  <div class="checkbox col-sm-4">
-                    <label>
-                        <input type="checkbox"> Computer
-                      </label>
-                  </div>
-                  <div class="checkbox col-sm-4">
-                    <label>
-                        <input type="checkbox"> RDP
-                      </label>
-                  </div>
-                  <div class="checkbox col-sm-4">
-                    <label>
-                        <input type="checkbox"> eRDPml
-                      </label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="startBar" class="col-sm-3 control-label">Start bar/psi</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control" id="startBar" placeholder="Start bar...">
-                  </div>
-                  <label for="endBar" class="col-sm-3 control-label label-right">End bar/psi</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control" id="endBar" placeholder="End bar...">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="startTime" class="col-sm-3 control-label">Start time</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control" id="startTime" placeholder="Start time...">
-                  </div>
-                  <label for="endTime" class="col-sm-3 control-label label-right">End time</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control" id="endTime" placeholder="End time...">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="buddy" class="col-sm-3 control-label">Buddy</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="buddy" placeholder="Buddy...">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="diving" class="col-sm-3 control-label">Diving</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" id="diving" placeholder="Diving...">
-                  </div>
-                </div>
-                <div class="form-group col-xs-12">
-                  <label for="comment">Comment:</label>
-                  <textarea class="form-control" rows="8" id="comment"></textarea>
-                </div>
-                <div class="form-group pull-right button-group-form">
-                  <button type="submit" class="btn btn-default">Cancel</button>
-                  <button type="submit" class="btn btn-primary">
-                    <i class="fa fa-save"></i> Save
-                  </button>
-                  <button type="submit" class="btn btn-primary">
-                    <i class="fa fa-edit"></i> Edit
-                  </button>
-                </div>
-              </div>
-            </div>
-          </fieldset>
-        </form>
-      </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <ol class="breadcrumb pull-right">
+        <li><a ui-sref="app.logbook">Home</a></li>
+        <li class="active">Dive</li>
+      </ol>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <form class="form-horizontal form-profile" ng-submit="formDive.$valid && $dive.doSave()" novalidate name="formDive">
+        <fieldset>
+          <legend class="scheduler-border">
+            <span ng-if="$dive.isNew()">New dive:</span>
+            <span ng-if="!$dive.isNew()">#{{ $dive.data.numDive }} dive</span>
+          </legend>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-group" ng-class="{ 'has-error' : formDive.numDive.$invalid && formDive.$submitted }">
+                <label for="numDive" class="col-sm-3 control-label">N° dive <span class="simbol-field-required">*</span> </label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="numDive" name="numDive" placeholder="N° dive..." required ng-model="$dive.data.numDive"
+                    ng-disabled="!$dive.isEnabled()">
+                  <p ng-show="formDive.numDive.$invalid && formDive.$submitted" class="help-block">Enter n° dive.</p>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : formDive.date.$invalid && formDive.$submitted }">
+                <label for="date" class="col-sm-3 control-label">Date <span class="simbol-field-required">*</span> </label>
+                <div class="col-sm-9">
+                  <input type="date" class="form-control" id="date" name="date" placeholder="Date..." required ng-model="$dive.data.date" ng-disabled="!$dive.isEnabled()">
+                  <p ng-show="formDive.date.$invalid && formDive.$submitted" class="help-block">Enter date.</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="visibility" class="col-sm-3 control-label">Visibility</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" id="visibility" name="visibility" placeholder="Visibility..." ng-model="$dive.data.visibility"
+                    ng-disabled="!$dive.isEnabled()">
+                </div>
+                <div class="radio col-sm-2">
+                  <label>
+                      <input type="radio" ng-model="$dive.data.mUnits" value="m" name="mUnits" ng-disabled="!$dive.isEnabled()"> m
+                    </label>
+                </div>
+                <div class="radio col-sm-2">
+                  <label>
+                      <input type="radio" ng-model="$dive.data.mUnits" value="ft" name="mUnits" ng-disabled="!$dive.isEnabled()"> ft
+                    </label>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : formDive.location.$invalid && formDive.$submitted }">
+                <label for="location" class="col-sm-3 control-label">Location <span class="simbol-field-required">*</span> </label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="location" name="location" placeholder="Location..." ng-model="$dive.data.location"
+                    required ng-disabled="!$dive.isEnabled()">
+                  <p ng-show="formDive.location.$invalid && formDive.$submitted" class="help-block">Enter location.</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="weight" class="col-sm-3 control-label">Weight</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" id="weight" name="weight" placeholder="Weight..." ng-model="$dive.data.weight" ng-disabled="!$dive.isEnabled()">
+                </div>
+                <div class="radio col-sm-2">
+                  <label>
+                      <input type="radio" value="kg" ng-model="$dive.data.mType" name="mType" ng-disabled="!$dive.isEnabled()"> kg
+                    </label>
+                </div>
+                <div class="radio col-sm-2">
+                  <label>
+                      <input type="radio" value="lb" ng-model="$dive.data.mType" name="mType" ng-disabled="!$dive.isEnabled()"> lb
+                    </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="weight" class="col-sm-3 control-label">Temperature</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="weight" name="weight" placeholder="Temperature..." name="temperature" ng-model="$dive.data.temperature"
+                    ng-disabled="!$dive.isEnabled()">
+                </div>
+                <div class="radio col-sm-1">
+                  <label>
+                      <input type="radio" name="tempType" ng-model="$dive.data.tempType" value="air" ng-disabled="!$dive.isEnabled()"> air
+                    </label>
+                </div>
+                <div class="radio col-sm-2">
+                  <label>
+                      <input type="radio" name="tempType" ng-model="$dive.data.tempType" value="bottom" ng-disabled="!$dive.isEnabled()"> bottom
+                    </label>
+                </div>
+                <div class="radio col-sm-1">
+                  <label>
+                      <input type="radio" name="tempType" ng-model="$dive.data.tempType" value="surface" ng-disabled="!$dive.isEnabled()"> surface
+                    </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="protection" class="col-sm-3 control-label">Protection</label>
+                <div class="col-sm-9">
+                  <select name="protection" class="form-control btn-block" ng-model="$dive.data.protection" ng-disabled="!$dive.isEnabled()">
+                      <option value="wetsuits">Wetsuits</option>
+                      <option value="dry_suits">Dry suits</option>
+                      <option value="semi_dry_suits">Semi-dry suits</option>
+                    </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="conditions" class="col-sm-3 control-label">Conditions</label>
+                <div class="col-sm-9">
+                  <select name="conditions" class="form-control btn-block" ng-model="$dive.data.conditions" ng-disabled="!$dive.isEnabled()">
+                      <option value="fresh">Fresh / salt water</option>
+                      <option value="fresh">Fresh / salt water</option>
+                    </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <div ng-class="{ 'has-error' : formDive.depth.$invalid && formDive.$submitted }">
+                  <label for="depth" class="col-sm-3 control-label">Depth <span class="simbol-field-required">*</span></label>
+                  <div class="col-sm-3">
+                    <input type="number" class="form-control" id="depth" name="depth" placeholder="Depth..." required ng-model="$dive.data.depth"
+                      ng-disabled="!$dive.isEnabled()">
+                    <p ng-show="formDive.depth.$invalid && formDive.$submitted" class="help-block">Enter depth.</p>
+                  </div>
+                </div>
+                <div ng-class="{ 'has-error' : formDive.time.$invalid && formDive.$submitted }">
+                  <label for="time" class="col-sm-3 control-label label-right">Time <span class="simbol-field-required">*</span></label>
+                  <div class="col-sm-3">
+                    <input type="number" class="form-control" id="time" name="time" placeholder="Minutes..." required ng-model="$dive.data.time"
+                      ng-disabled="!$dive.isEnabled()">
+                    <p ng-show="formDive.time.$invalid && formDive.$submitted" class="help-block">Enter time.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group pull-left button-group-form">
+                <button type="button" class="btn btn-danger" ng-if="!$dive.isNew() && $dive.isEnabled()" ng-click="$dive.doDelete()">Delete</button>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-group">
+                <div class="checkbox col-sm-4">
+                  <label>
+                        <input type="checkbox" ng-model="$dive.data.computer" value="true" ng-disabled="!$dive.isEnabled()"> Computer
+                      </label>
+                </div>
+                <div class="checkbox col-sm-4">
+                  <label>
+                        <input type="checkbox" ng-model="$dive.data.rdp" value="true" ng-disabled="!$dive.isEnabled()"> RDP
+                      </label>
+                </div>
+                <div class="checkbox col-sm-4">
+                  <label>
+                        <input type="checkbox" ng-model="$dive.data.erdpml" value="true" ng-disabled="!$dive.isEnabled()"> eRDPml
+                      </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="startBar" class="col-sm-3 control-label">Start bar/psi</label>
+                <div class="col-sm-3">
+                  <input type="number" class="form-control" id="startBar" name="startBar" placeholder="Start bar..." ng-disabled="!$dive.isEnabled()"
+                    ng-model="$dive.data.startBarPsi">
+                </div>
+                <label for="endBar" class="col-sm-3 control-label label-right">End bar/psi</label>
+                <div class="col-sm-3">
+                  <input type="number" class="form-control" id="endBar" name="endBar" placeholder="End bar..." ng-disabled="!$dive.isEnabled()"
+                    ng-model="$dive.data.endBarPsi">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="startTime" class="col-sm-3 control-label">Start time</label>
+                <div class="col-sm-3">
+                  <input type="number" class="form-control" id="startTime" name="startTime" placeholder="Start time..." ng-disabled="!$dive.isEnabled()"
+                    ng-model="$dive.data.startTime">
+                </div>
+                <label for="endTime" class="col-sm-3 control-label label-right">End time</label>
+                <div class="col-sm-3">
+                  <input type="number" class="form-control" id="endTime" name="endTime" placeholder="End time..." ng-disabled="!$dive.isEnabled()"
+                    ng-model="$dive.data.endTime">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="buddy" class="col-sm-3 control-label">Buddy</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="buddy" name="buddy" placeholder="Buddy..." ng-disabled="!$dive.isEnabled()" ng-model="$dive.data.buddy">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="diving" class="col-sm-3 control-label">Diving</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="diving" name="diving" placeholder="Diving..." ng-disabled="!$dive.isEnabled()"
+                    ng-model="$dive.data.diving">
+                </div>
+              </div>
+              <div class="form-group col-xs-12">
+                <label for="comment">Comments:</label>
+                <textarea class="form-control" rows="8" id="comment" name="comments" ng-disabled="!$dive.isEnabled()" lng-model="$dive.data.comments"></textarea>
+              </div>
+              <div class="form-group pull-right button-group-form">
+                <button type="button" class="btn btn-danger pull-left" ng-if="cert.enabled" ng-click="$certificate.doDelete($index)">Delete</button>
+                <button type="button" class="btn btn-default" ng-click="$dive.doCancel()" ng-if="$dive.isEnabled()">Cancel</button>
+                <button type="submit" class="btn btn-primary" ng-if="$dive.isEnabled()">
+                    <i class="fa fa-save"></i> Save
+                  </button>
+                <button type="button" class="btn btn-primary" ng-click="$dive.doEdit()" ng-if="!$dive.isEnabled()">
+                    <i class="fa fa-edit"></i> Edit
+                  </button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

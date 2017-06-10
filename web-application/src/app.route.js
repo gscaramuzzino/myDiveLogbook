@@ -45,6 +45,10 @@ export default function AppRoute(stateProvider, urlProvider) {
 
   stateProvider.state('app.dive', {
     url: 'dive',
+    params: {
+      isNew: true,
+      diveId: null
+    },
     views: {
       'content@': {
         templateUrl: require('./views/dive/dive.html'),

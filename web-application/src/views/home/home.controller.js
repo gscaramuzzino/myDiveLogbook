@@ -4,7 +4,6 @@ export default class HomeController {
     Manager = AuthManager;
     this.registration = {};
     if (Manager.loadUserCredentials()) {
-      console.log("prova");
       $state.go("app.logbook");
     }
   }
@@ -14,4 +13,4 @@ export default class HomeController {
     this.registration = {};
   }
 }
-HomeController.$inject = ["$state","AuthManager"];
+HomeController.$inject = ["$state", "AuthManager"];

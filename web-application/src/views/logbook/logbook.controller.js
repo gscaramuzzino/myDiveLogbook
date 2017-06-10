@@ -1,31 +1,36 @@
 require("./../../images/user_picture.jpg");
-LogbookController.$inject = ["$transition$", "$state", "LogbookManager", "User"];
-export default function LogbookController($transition$, $state, Manager, User) {
+LogbookController.$inject = ["$transition$", "DiveManager", "UiManager", "User"];
+export default function LogbookController($transition$, DiveManager, UiManager, User) {
   const isFavourites = $transition$.params().isFavourites;
   let user = User.getUser();
+  let vm = this;
 
-  this.$onInit = () => {
-    this.data = [];
-    Manager.get()
-      .$promise.then( 
-        function (response) {},
-        function (response) {}
-      )
+  vm.$onInit = () => {
+    let method = (isFavourites) ? "getFavorites" : "get";
+    DiveManager[method]().then((data) => {
+      vm.data = data;
+    });
   }
 
-  this.getColspan = () => {
-    return isFavourites ? 2 : 1;
+  vm.getNameSurname = () => {
+    return User.getUser() && User.getUser().firstname + " " + User.getUser().lastname;
   }
 
-  this.getNameSurname = () => {
-    return User.getUser()&&User.getUser().firstname + " " + User.getUser().lastname;
-  }
-
-  this.isFavourites = () => {
+  vm.isFavourites = () => {
     return isFavourites;
   }
 
-  this.createDive = () => {
-    $state.go("app.dive");
+  vm.deleteFav = (item, index) => {
+    DiveManager.deleteFavorites(item).then(() => {
+      UiManager.showMessageSuccess();
+      vm.data.splice(index,1);
+    });
   }
-} 
+
+  vm.addFav = (item) => {
+    DiveManager.addFavorites(item).then(() => {
+      item.fav = true;
+      UiManager.showMessageSuccess();
+    });
+  }
+}
