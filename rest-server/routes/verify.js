@@ -10,8 +10,10 @@ exports.getToken = function (user) {
 
 exports.verifyOrdinaryUser = function (req, res, next) {
     // check header or url parameters or post parameters for token
-    var token = req.body.token || req.query.token || req.headers['x-access-token'];
 
+    var token = req.body.token || req.query.token || req.headers['x-access-token'];
+    if (req.query.token) console.log("sss", req.path);
+    if (req.body && req.body.onlyToken == true) req.body = {};
     // decode token
     if (token) {
         // verifies secret and checks exp
@@ -36,7 +38,6 @@ exports.verifyOrdinaryUser = function (req, res, next) {
 };
 
 exports.verifyAdmin = function (req, res, next) {
-    console.log(req.decoded);
     if (req.decoded._doc.admin) {
         next();
     } else {

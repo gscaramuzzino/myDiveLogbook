@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var authenticate = require('./authenticate');
+var cors = require('cors')
 
 var config = require('./config');
 
@@ -26,6 +27,8 @@ var favorites = require('./routes/favorites');
 var app = express();
 // Secure traffic only
 app.all('*', function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
   console.log('req start: ', req.secure, req.hostname, req.url, app.get('port'));
   /*if (req.secure) {
     return next();
@@ -34,6 +37,7 @@ app.all('*', function (req, res, next) {
 
   //res.redirect('https://'+req.hostname+':'+app.get('secPort')+req.url);
 });;
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
@@ -45,6 +49,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
