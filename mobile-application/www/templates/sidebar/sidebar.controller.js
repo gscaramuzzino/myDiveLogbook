@@ -11,11 +11,12 @@ function SidebarController($scope, $rootScope, $ionicModal, $timeout, LocalStora
   if (AuthManager.isAuthenticated()) {
     $scope.loggedIn = true;
     $scope.username = AuthManager.getUsername();
-  } 
+  }
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login/login.html', {
-    scope: $scope
+    scope: $scope,
+    animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.modal = modal;
   });

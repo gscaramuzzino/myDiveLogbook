@@ -1,7 +1,7 @@
 angular.module("myDiveLogbook").factory("AuthManager", AuthManager);
-AuthManager.$inject = ["$resource", "$http", "$rootScope", "LocalStorage", "baseURL", "User"];
+AuthManager.$inject = ["$resource", "$http", "$rootScope", "LocalStorage", "baseURL", "User", "Logbook", "HomeManager"];
 
-function AuthManager($resource, $http, $rootScope, LocalStorage, baseURL, User) {
+function AuthManager($resource, $http, $rootScope, LocalStorage, baseURL, User, Logbook, HomeManager) {
   var authFac = {},
     TOKEN_KEY = 'userinfo',
     isAuthenticated = false,
@@ -20,6 +20,10 @@ function AuthManager($resource, $http, $rootScope, LocalStorage, baseURL, User) 
       if (credentials.username != undefined) {
         authManager.useCredentials(credentials);
         authManager.getUserProfile();
+        HomeManager.get().then(function (data) {
+          Logbook.setLogbook(data);
+          $rootScope.$broadcast('logbook:Successful');
+        });
         return true;
       }
       return false;
@@ -62,6 +66,10 @@ function AuthManager($resource, $http, $rootScope, LocalStorage, baseURL, User) 
               token: response.token
             });
             authManager.getUserProfile();
+            HomeManager.get().then(function (data) {
+              Logbook.setLogbook(data);
+              $rootScope.$broadcast('logbook:Successful');
+            });
             $rootScope.$broadcast('login:Successful');
           },
           function (response) {});

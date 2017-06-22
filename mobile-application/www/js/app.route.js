@@ -11,7 +11,9 @@ angular.module("myDiveLogbook").config(function ($stateProvider, $urlRouterProvi
       url: '/home',
       views: {
         'mainContent': {
-          templateUrl: 'templates/home/home.html'
+          templateUrl: 'templates/home/home.html',
+          controller: 'HomeController',
+          controllerAs: '$home'
         }
       }
     })

@@ -21,16 +21,16 @@
         <ion-item class="item-divider" ng-if="loggedIn">
           {{username}}
         </ion-item>
-        <ion-item menu-close href="#/app/home">
+        <ion-item menu-close href="#/app/home" ng-if="loggedIn">
           Logbook
         </ion-item>
-        <ion-item menu-close href="#/app/certificate">
+        <ion-item menu-close href="#/app/certificate" ng-if="loggedIn">
           Certificate
         </ion-item>
-        <ion-item menu-close href="#/app/profile">
+        <ion-item menu-close href="#/app/profile" ng-if="loggedIn">
           Profile
         </ion-item>
-        <ion-item menu-close href="#/app/info">
+        <ion-item menu-close href="#/app/info" ng-if="loggedIn">
           Informations
         </ion-item>
         <ion-item class="item-divider">
