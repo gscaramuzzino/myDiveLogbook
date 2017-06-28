@@ -30,14 +30,11 @@
         <ion-item menu-close href="#/app/profile" ng-if="loggedIn">
           Profile
         </ion-item>
-        <ion-item menu-close href="#/app/info" ng-if="loggedIn">
+        <ion-item menu-close href="#/app/info">
           Informations
         </ion-item>
-        <ion-item class="item-divider">
+        <ion-item class="item-divider" ng-if="loggedIn">
           Services
-        </ion-item>
-        <ion-item menu-close ng-click="login()" ng-if="!loggedIn">
-          Login
         </ion-item>
         <ion-item menu-close ng-click="logOut()" ng-if="loggedIn">
           Logout
