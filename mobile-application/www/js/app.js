@@ -1,5 +1,5 @@
 angular.module('myDiveLogbook', ['ionic', 'ngCordova', 'ngResource'])
-  .constant("baseURL", "http://localhost:3000/")
+  .constant("baseURL", "http://ec2-52-23-211-176.compute-1.amazonaws.com:3000/")
   .run(function ($ionicPlatform, $rootScope, $ionicLoading, $cordovaSplashscreen, $timeout) {
     $ionicPlatform.ready(function () {
 

@@ -38,7 +38,17 @@ angular.module("myDiveLogbook").config(function ($stateProvider, $urlRouterProvi
           controllerAs: '$profile'
         }
       }
+    })
+
+    .state('app.info', {
+      url: '/info',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/info/info.html'
+        }
+      }
     });
+
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');

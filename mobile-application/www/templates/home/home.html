@@ -34,19 +34,19 @@
       </div>
     </div>
 
-    <div class="list">
-      <label class="item item-input item-floating-label">
-    <span class="input-label">First Name</span>
-    <input type="text" placeholder="First Name">
-  </label>
-      <label class="item item-input item-floating-label">
-    <span class="input-label">Last Name</span>
-    <input type="text" placeholder="Last Name">
-  </label>
+    <div class="list" ng-if="!$home.loggedIn">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Email</span>
+          <input type="text" ng-model="$home.loginData.username">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Password</span>
+          <input type="password" ng-model="$home.loginData.password">
+      </label>
 
-</div>
-<div class="padding">
-  <button class="button button-block button-positive">Submit</button>
-</div>
+    </div>
+    <div class="padding" ng-if="!$home.loggedIn">
+      <button type="button" class="button button-block button-positive" ng-click="$home.doLogin()">Submit</button>
+    </div>
   </ion-content>
 </ion-view>
