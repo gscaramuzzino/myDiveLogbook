@@ -20,3 +20,32 @@
                     <li>Add dive in favourites: the user can add a dive in his favourites list</li>
                     <li>Show favourites dives: a page to show all favourites dive</li>
                 </ul>
+<a href="http://ec2-52-23-211-176.compute-1.amazonaws.com:3000/">Link to website</a>
+
+Frameworks and Tools:
+- AngularJS
+- Boostrap
+- Font awesome
+- Webpack2
+- Bower
+- npm
+- Ionic
+- ES6
+
+Open terminal:
+<pre>
+ git clone https://github.com/giuseScara/myDiveLogbook.git<br>
+ cd myDiveLogbook <br>
+</pre>
+
+<b>Try rest-server</b>
+<pre>
+</pre>
+   
+<b>Try web-application</b>
+<pre>
+</pre>
+
+<b>Try mobile-application</b>
+<pre>
+</pre>
