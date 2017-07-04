@@ -36,6 +36,7 @@ Frameworks and Tools:
 - NodeJS
 - ExpressJS
 - JWT
+- MongoDB
 
 Open terminal:
 <pre>
