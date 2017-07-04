@@ -21,7 +21,8 @@
                     <li>Show favourites dives: a page to show all favourites dive</li>
                 </ul>
 <a href="http://ec2-52-23-211-176.compute-1.amazonaws.com:3000/">Link to the website</a>
-<br>
+
+
 Frameworks and Tools:
 - AngularJS
 - Boostrap
