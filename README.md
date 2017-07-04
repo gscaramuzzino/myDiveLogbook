@@ -33,6 +33,9 @@ Frameworks and Tools:
 - npm
 - Ionic
 - ES6
+- NodeJS
+- ExpressJS
+- JWT
 
 Open terminal:
 <pre>
