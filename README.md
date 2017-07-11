@@ -63,12 +63,27 @@ Open terminal:
 
 <b>Try rest-server</b>
 <pre>
+  cd rest-server
+  (sudo) npm install
+  (sudo) npm run start
 </pre>
    
 <b>Try web-application</b>
 <pre>
+  cd web-application
+  (sudo) npm install
+  (sudo) npm run dev     Development mode
+    or
+      (sudo) npm run integration   Integration test with rest-server
+        or
+          (sudo) npm run prod      Production mode
+  For other command read package.json
+  open url http://localhost:9000/#!/
 </pre>
 
 <b>Try mobile-application</b>
 <pre>
+  cd mobile-application
+  (sudo) npm install
+  ionic serve lab
 </pre>
