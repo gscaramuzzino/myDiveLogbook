@@ -54,7 +54,8 @@ Frameworks and Tools:
 - JWT
 - Sass
 - MongoDB
-<p><b>Important:</b> Install nodejs, mongodb and ionic before proceed</p>
+<p><b>Important:</b> Install nodejs, mongodb and ionic before proceed. Then run mongodb.
+mongodb --dbpath=data</p>
 Open terminal:
 <pre>
  git clone https://github.com/giuseScara/myDiveLogbook.git<br>
