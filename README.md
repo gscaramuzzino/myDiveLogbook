@@ -26,7 +26,7 @@
 
 Frameworks and Tools:
 - AngularJS
-- Boostrap
+- Bootstrap
 - Font awesome
 - Webpack2
 - Bower
