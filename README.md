@@ -12,13 +12,29 @@
                     List of Features:
                 </p>
                 <ul>
-                    <li>Create new dive into the logbook: the user can add a new dive with all informations
-                    </li>
-                    <li>Show detail dive: a page to show all informations about the dive</li>
-                    <li>Show all dives: a page lo list all user’s dive</li>
-                    <li>Search dive: the user can search a dive</li>
-                    <li>Add dive in favourites: the user can add a dive in his favourites list</li>
-                    <li>Show favourites dives: a page to show all favourites dive</li>
+                  <li><b>Web application and rest server:</b>
+                    <ul>
+                      <li>Create new dive into the logbook: the user can add a new dive with all informations</li>
+                      <li>Show detail dive: a page to show all informations about the dive</li>
+                      <li>Show all dives: a page lo list all user’s dive</li>
+                      <li>Add dive in favourites: the user can add a dive in his favourites list</li>
+                      <li>Show favourites dives: a page to show all favourites dive</li>
+                      <li>Show detail user’s licence</li>
+                      <li>Show user’s profile informations</li>
+                      <li>General informations</li>
+                      <li>Login</li>
+                      <li>Logout</li> 
+                    </ul>
+                  </li>
+                  <li><b>Mobile application::</b></li>
+                     <ul>
+                     <li>Show all dives: a page lo list all user’s dive</li>
+                     <li>Show detail user’s licence</li>
+                      <li>General informations</li>
+                      <li>Show user’s profile informations</li>
+                      <li>Login</li>
+                      <li>Logout</li>
+                    </ul>
                 </ul>
  <p>
 <a href="http://ec2-52-23-211-176.compute-1.amazonaws.com:3000/">Link to the website</a>
