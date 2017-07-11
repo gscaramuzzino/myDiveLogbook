@@ -54,7 +54,7 @@ Frameworks and Tools:
 - JWT
 - Sass
 - MongoDB
-
+<p><b>Important:</b> Install nodejs and mongodb before proceed</p>
 Open terminal:
 <pre>
  git clone https://github.com/giuseScara/myDiveLogbook.git<br>
