@@ -1,0 +1,65 @@
+<div class="container">
+
+  <div class="row row-login">
+    <div class="col-md-9">
+      <div class="jumbotron">
+        <h1>My dive logbook</h1>
+        <p>A digital dive log used by an underwater diver to record the details of their dives.</p>
+        <p><a class="btn btn-primary btn-lg" ui-sref="app.info" role="button">Learn more</a></p>
+
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <form ng-submit="$home.doRegister()" name="$home.registrationForm">
+        <div class="form-group">
+          <label for="name" class="control-label">Name: *</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Name..." ng-model="$home.registration.firstname"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="surname">Surname: *</label>
+          <input type="text" class="form-control" id="surname" name="surname" placeholder="Surname..." ng-model="$home.registration.lastname"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email: *</label>
+          <input type="email" class="form-control" id="email" name="username" placeholder="Email..." ng-model="$home.registration.username"
+            ng-pattern="email" required ng-va>
+        </div>
+        <div class="form-group">
+          <label for="password">Password: *</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password..." ng-model="$home.registration.password"
+            required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg" ng-disabled="$home.registrationForm.$pristine">Create account</button>
+      </form>
+    </div>
+  </div>
+  <!-- Three columns of text below the carousel -->
+  <div class="row row-thumbnail">
+    <div class="col-lg-4">
+      <img class="img-circle" src="http://img.fotocommunity.com/squali-in-polinesia-9c7b4cd7-d474-4a19-9236-e5bc0cb75b14.jpg?width=160&height=160"
+        alt="Generic placeholder image" width="160" height="160">
+      <h2>Coral reefs</h2>
+      <p>Coral reefs are diverse underwater ecosystems held together by calcium carbonate structures secreted by corals. Coral reefs are built by colonies of tiny animals found in marine water that contain few nutrients</p>
+    </div>
+    <!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <img class="img-circle" src="https://static.wixstatic.com/media/8971d2_fb7cbd3a15e74996b568765b7da20931.jpg_srz_140_140_85_22_0.50_1.20_0.00_jpg_srz"
+        alt="Generic placeholder image" width="160" height="160">
+      <h2>Scuba diving</h2>
+      <p>Scuba diving is a mode of underwater diving in which the scuba diver uses a self-contained underwater breathing apparatus
+        (scuba) which is completely independent of surface supply, to breathe underwater.</p>
+    </div>
+    <!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <img class="img-circle" src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Logo_of_PADI.svg/440px-Logo_of_PADI.svg.png"
+        alt="Generic placeholder image" width="160" height="160">
+      <h2>PADI</h2>
+      <p>The Professional Association of Diving Instructors (PADI) is the world's largest recreational diving membership and diver training organization founded in 1966 by John Cronin and Ralph Erickson.
+      </p>
+    </div>
+    <!-- /.col-lg-4 -->
+  </div>
+  <!-- /.row -->
+</div>

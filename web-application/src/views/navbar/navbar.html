@@ -1,0 +1,64 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+        aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <a class="navbar-brand" href="#">
+        <img alt="myDiveLogbbok" src="">
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <form class="form-inline navbar-form navbar-right" ng-submit="$nav.doLogin()" ng-if="!$nav.isAuthenticated()">
+        <div class="form-group">
+          <label class="sr-only" for="email">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Email..." ng-model="$nav.login.username">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password..." ng-model="$nav.login.password">
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+      <ul class="nav navbar-nav" ng-if="$nav.isAuthenticated()">
+        <li>
+          <a ui-sref="app.logbook({isFavourites: false})">
+            <i class="fa fa-book" aria-hidden="true"></i> Logbook
+          </a>
+        </li>
+        <li>
+          <a ui-sref="app.logbook({isFavourites: true})">
+            <i class="fa fa-heart" aria-hidden="true"></i> Favourites
+          </a>
+        </li>
+        <li>
+          <a ui-sref="app.certificate()">
+            <i class="fa fa-graduation-cap" aria-hidden="true"></i> Certificate
+          </a>
+        </li>
+        <li>
+          <a ui-sref="app.profile()">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile
+          </a>
+        </li>
+        <li>
+          <a ui-sref="app.dive()">
+            <i class="fa fa-plus" aria-hidden="true"></i> New dive
+          </a>
+        </li>
+        <li>
+          <a ui-sref="app.info()">
+            <i class="fa fa-info-circle" aria-hidden="true"></i> Informations
+          </a>
+        </li>
+      </ul>
+      <button type="button" class="btn btn-primary btn-sm navbar-btn navbar-right" ng-click="$nav.doLogout()" ng-if="$nav.isAuthenticated()">Sign out</button>
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</nav>

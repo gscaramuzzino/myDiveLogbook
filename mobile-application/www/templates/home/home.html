@@ -1,0 +1,52 @@
+<ion-view view-title="My Dive Logbook">
+  <ion-content>
+    <div class="card" ng-repeat="item in $home.data | orderBy:'numDive'" ng-if="$home.loggedIn">
+      <div class="item item-divider">
+        #{{$index +1}} - {{item.location}} - {{item.date | date}}
+      </div>
+      <div class="item item-text-wrap">
+        <div class="list">
+          <label class="item item-input">
+          <span class="input-label">N° dive</span>
+          <span class="input-label">{{item.numDive}}</span>
+        </label>
+          <label class="item item-input">
+          <span class="input-label">Date</span>
+          <span class="input-label">{{item.date | date}}</span>
+        </label>
+          <label class="item item-input">
+          <span class="input-label">Location</span>
+          <span class="input-label">{{item.location}}</span>
+        </label>
+          <label class="item item-input">
+          <span class="input-label">Diving</span>
+          <span class="input-label">{{item.diving}}</span>
+        </label>
+          <label class="item item-input">
+          <span class="input-label">Duration</span>
+          <span class="input-label">{{item.time}} min</span>
+        </label>
+          <label class="item item-input">
+          <span class="input-label">Depth</span>
+          <span class="input-label">{{item.depth}} m</span>
+        </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="list" ng-if="!$home.loggedIn">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Email</span>
+          <input type="text" ng-model="$home.loginData.username">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Password</span>
+          <input type="password" ng-model="$home.loginData.password">
+      </label>
+
+    </div>
+    <div class="padding" ng-if="!$home.loggedIn">
+      <button type="button" class="button button-block button-positive" ng-click="$home.doLogin()">Submit</button>
+    </div>
+  </ion-content>
+</ion-view>

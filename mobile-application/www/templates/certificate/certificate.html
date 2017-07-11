@@ -1,0 +1,33 @@
+<ion-view view-title="Certificate">
+  <ion-content>
+    <div class="card" ng-repeat="item in $certificate.data">
+      <div class="item item-divider">
+        Certificate #{{$index +1}}
+      </div>
+      <div class="item item-text-wrap">
+        <div class="list">
+          <label class="item item-input">
+          <span class="input-label">N° certificate</span>
+          <input type="text" ng-model="item.numLicence" disabled>
+        </label>
+          <label class="item item-input">
+          <span class="input-label">N° instructor</span>
+          <input type="text" ng-model="item.numInstructor" disabled>
+        </label>
+          <label class="item item-input">
+          <span class="input-label">Type certificate</span>
+          <input type="text" ng-model="item.typeLicence" disabled>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Date certificate</span>
+          <input type="date" ng-model="item.dateOfLicence" disabled>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Dive center</span>
+          <input type="text" ng-model="item.diveCenter" disabled>
+        </label>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+/* Empty. Add your own CSS if you like */
+
+.popover {
+  height: auto !important;
+}
+
+.popover ion-header-bar {
+  position: relative;
+}
+
+.popover ion-content {
+  top: 0;
+  position: relative;
+}
+
+.popover-inner-content {
+  width: 100%;
+  padding: 5px 20px;
+}
+
+.frame_look_feel {
+  background-color: red;
+}
+
+.bar.bar-royal {
+  border-color: #1995dc;
+  background-color: #1995dc;
+  background-image: linear-gradient(0deg, #1995dc, #1995dc 50%, transparent 50%);
+  color: #fff;
+}
+
+.bar.bar-royal .title {
+  color: #fff;
+}
+
+.bar.bar-royal.bar-footer {
+  background-image: linear-gradient(180deg, #1995dc, #1995dc 50%, transparent 50%);
+}

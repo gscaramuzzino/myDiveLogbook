@@ -1,0 +1,25 @@
+{
+  "name": "my-dive-logbook",
+  "version": "1.0.0",
+  "description": "A digital dive log used by an underwater diver to record the details of their dives.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giuseScara/myDiveLogbook.git"
+  },
+  "keywords": [
+    "dive"
+  ],
+  "author": "Giuseppe Scaramuzzino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/giuseScara/myDiveLogbook/issues"
+  },
+  "homepage": "https://github.com/giuseScara/myDiveLogbook#readme",
+  "dependencies": {
+    
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "myDiveLogbook-web-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "integration": "rimraf ../rest-server/public/* && cross-env NODE_ENV=integration webpack -p --progress --colors --watch",
+    "prod": "npm run clean && cross-env NODE_ENV=production webpack -p",
+    "clean": "rimraf ./dist/*",
+    "copy": "cp -r dist/. ../rest-server/public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "bootstrap-loader": "^2.1.0",
+    "bootstrap-sass": "^3.3.7",
+    "cross-env": "^5.0.0",
+    "css-loader": "^0.28.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "font-awesome": "^4.7.0",
+    "font-awesome-webpack": "0.0.5-beta.2",
+    "html-webpack-plugin": "^2.28.0",
+    "image-webpack-loader": "github:tcoopman/image-webpack-loader",
+    "imports-loader": "^0.7.1",
+    "jquery": "^3.2.1",
+    "less": "^2.7.2",
+    "ng-annotate-loader": "^0.6.0",
+    "node-sass": "^4.5.2",
+    "purifycss-webpack": "^0.6.2",
+    "resolve-url-loader": "^2.0.2",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.17.0",
+    "toastr": "^2.1.2",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "angular": "^1.6.4",
+    "@uirouter/angularjs": "^1.0.3",
+    "angular-mocks": "^1.6.4",
+    "angular-resource": "^1.6.4",
+    "ng-dialog": "^0.6.0"
+  }
+}

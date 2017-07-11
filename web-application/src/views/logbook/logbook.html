@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <ol class="breadcrumb pull-right">
+                <li class="active">Home</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row row-user-home">
+            <div class="col-xs-12">
+                <div class="media media-user-home">
+                    <div class="media-left">
+                        <img alt="userPicture" class="media-object" src="./../../images/user_picture.jpg" />
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            <span class="pull-left">
+                            {{$logbook.getNameSurname()}}
+                        </span>
+                            <span class="pull-right" ng-if="$logbook.data.length > 0">
+                            <small>#{{$logbook.data.length}} <i class="fa fa-heart" ng-if="$logbook.isFavourites()"></i> Dives</small>
+                        </span>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-if="$logbook.data.length > 0">
+            <div class="col-xs-12">
+                <div class="table-responsive table-width-fix">
+                    <table class="table table-bordered table-striped table-width-fix">
+                        <thead>
+                            <tr>
+                                <th>Num Dive </i>
+                                </th>
+                                <th>Date </i>
+                                </th>
+                                <th>Location </i>
+                                </th>
+                                <th>Duration </i>
+                                </th>
+                                <th>Depth </i>
+                                </th>
+                                <th colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in $logbook.data | orderBy:'numDive'">
+                                <th scope="row">{{item.numDive}}</th>
+                                <td>{{item.date | date}}</td>
+                                <td>{{item.location}}</td>
+                                <td>{{item.time}} min</td>
+                                <td>{{item.depth}} m</td>
+                                <td ng-if="$logbook.isFavourites()">
+                                    <a href="" ng-click="$logbook.deleteFav(item, $index)">
+                                        <i class="fa fa-heart"></i>
+                                    </a>
+                                </td>
+                                <td ng-if="!$logbook.isFavourites()">
+                                    <a href="" ng-click="$logbook.addFav(item)">
+                                        <i class="fa" ng-class="{'fa-heart-o': !item.fav, 'fa-heart': item.fav}"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a ui-sref="app.dive({isNew: false, diveId:item._id})">
+                                        <i class="fa fa-share"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-if="$logbook.data.length == 0">
+            <div class="col-xs-12">
+                <div class="well text-center create-first-dive">
+                    <span ng-if="!$logbook.isFavourites()">Add your first dive <i class="fa fa-plus" ui-sref="app.dive"></i></span>
+                    <span ng-if="$logbook.isFavourites()">You don't have favourites dives</span>
+                </div>
+            </div>
+        </div>
+    </div>
