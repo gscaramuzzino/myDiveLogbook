@@ -26,7 +26,7 @@
                       <li>Logout</li> 
                     </ul>
                   </li>
-                  <li><b>Mobile application::</b></li>
+                  <li><b>Mobile application:</b></li>
                      <ul>
                      <li>Show all dives: a page lo list all user’s dive</li>
                      <li>Show detail user’s licence</li>
